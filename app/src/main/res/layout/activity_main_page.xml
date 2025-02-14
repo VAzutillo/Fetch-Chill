@@ -18,7 +18,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fetch And Chill"
+            android:text="Fetch&amp;Chill"
             android:fontFamily="@font/lexenddeca_regular"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -32,21 +32,21 @@
     <LinearLayout
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:background="@color/tertiary"
+        android:background="@drawable/corner"
         android:orientation="horizontal"
         android:padding="10dp"
+
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Find Your\nGood Services for\nYour Pet"
-            android:fontFamily="@font/lexenddeca_regular"
-            android:textSize="16sp"
-            android:textColor="#000000"
             android:layout_weight="1"
-            />
+            android:fontFamily="@font/lexenddeca_regular"
+            android:text="Find Your\nGood Services for\nYour Pet"
+            android:textColor="#000000"
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="80dp"
@@ -72,12 +72,12 @@
         android:columnCount="2"
         android:rowCount="2"
         android:padding="4dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <FrameLayout
             android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:background="@color/tertiary"
+            android:layout_height="180dp"
+            android:background="@drawable/corner"
             android:layout_margin="8dp"
             android:clickable="true"
             android:focusable="true">
@@ -85,6 +85,7 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/chechup"
                 android:layout_gravity="center"/>
 
@@ -94,15 +95,15 @@
                 android:text="@string/check_up"
                 android:fontFamily="@font/lexenddeca_regular"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_gravity="bottom|center_horizontal"
                 android:padding="8dp"/>
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:background="@color/tertiary"
+            android:layout_height="180dp"
+            android:background="@drawable/corner"
             android:layout_margin="8dp"
             android:clickable="true"
             android:focusable="true">
@@ -110,6 +111,7 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/grooming"
                 android:layout_gravity="center"/>
 
@@ -119,15 +121,15 @@
                 android:text="@string/grooming"
                 android:fontFamily="@font/lexenddeca_regular"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_gravity="bottom|center_horizontal"
                 android:padding="8dp"/>
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:background="@color/tertiary"
+            android:layout_height="180dp"
+            android:background="@drawable/corner"
             android:layout_margin="8dp"
             android:clickable="true"
             android:focusable="true">
@@ -135,6 +137,7 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/vaccine"
                 android:layout_gravity="center"/>
 
@@ -144,15 +147,15 @@
                 android:text="@string/vaccine"
                 android:fontFamily="@font/lexenddeca_regular"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="20dp"
                 android:layout_gravity="bottom|center_horizontal"
                 android:padding="8dp"/>
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:background="@color/tertiary"
+            android:layout_height="180dp"
+            android:background="@drawable/corner"
             android:layout_margin="8dp"
             android:clickable="true"
             android:focusable="true">
@@ -160,6 +163,7 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/training"
                 android:layout_gravity="center"/>
 
@@ -169,7 +173,7 @@
                 android:text="@string/training"
                 android:fontFamily="@font/lexenddeca_regular"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="20dp"
                 android:layout_gravity="bottom|center_horizontal"
                 android:padding="8dp"/>
         </FrameLayout>
@@ -178,9 +182,9 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:menu="@menu/bottom_nav_menu"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
         android:background="@color/buttons"
-        />
+        app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>
