@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/secondary"
+    tools:context=".MainPage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/bg_color">
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fetch And Chill"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"/>
+
+    </LinearLayout>
+
+    <!-- Featured Card -->
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:background="@color/tertiary"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find Your\nGood Services for\nYour Pet"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/services"
+            android:scaleType="centerCrop"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Services We Offer:"
+        android:textSize="30sp"
+        android:fontFamily="@font/lexenddeca_regular"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <!-- Services Grid -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:padding="4dp"
+        android:layout_marginTop="20dp">
+
+        <FrameLayout
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@color/tertiary"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/chechup"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_up"
+                android:fontFamily="@font/lexenddeca_regular"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:padding="8dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@color/tertiary"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/grooming"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grooming"
+                android:fontFamily="@font/lexenddeca_regular"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:padding="8dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@color/tertiary"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/vaccine"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vaccine"
+                android:fontFamily="@font/lexenddeca_regular"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:padding="8dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@color/tertiary"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/training"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/training"
+                android:fontFamily="@font/lexenddeca_regular"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:padding="8dp"/>
+        </FrameLayout>
+
+    </GridLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:menu="@menu/bottom_nav_menu"
+        android:background="@color/buttons"
+        />
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Fetch&amp;Chill</string>
+    <string name="splash">splash</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="vaccine">Vaccine</string>
+    <string name="check_up">Check Up</string>
+    <string name="grooming">Grooming</string>
+    <string name="training">Training</string>
+</resources>
