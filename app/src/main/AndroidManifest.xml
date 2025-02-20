@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name = "android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/login_img"
@@ -13,28 +16,37 @@
         android:theme="@style/Theme.FetchChill"
         tools:targetApi="31">
         <activity
-            android:name=".MainPage"
+            android:name=".view.TrainingActivity"
             android:exported="false" />
         <activity
-            android:name=".Main_Page"
+            android:name=".view.VaccineActivity"
             android:exported="false" />
         <activity
-            android:name=".ResetPasswordPage"
+            android:name=".view.GroomingActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPasswordPage"
+            android:name=".view.CheckUpActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpPage"
+            android:name=".view.MainPage"
             android:exported="false" />
         <activity
-            android:name=".LoginPage"
+            android:name=".view.ResetPasswordPage"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".view.ForgotPasswordPage"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.SignUpPage"
+            android:exported="false" />
+        <activity
+            android:name=".view.LoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".view.SplashScreen"
+            android:exported="false" />
+        <activity
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

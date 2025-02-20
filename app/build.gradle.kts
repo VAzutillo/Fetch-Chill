@@ -25,6 +25,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+        buildFeatures {
+            viewBinding = true
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -32,6 +35,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures{
+        viewBinding = true
     }
 }
 
@@ -45,4 +51,16 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    //viewmodel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    //http client
+    implementation(libs.logging.interceptor)
+    implementation(libs.okhttp)
+
+    //retrofit and json response converter
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 }

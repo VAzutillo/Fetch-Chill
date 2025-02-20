@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    tools:context=".SignUpPage">
+    tools:context=".view.SignUpPage">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signUpToLoginPage"
@@ -125,6 +125,7 @@
         app:layout_constraintVertical_bias="0.48000002">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usernameTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="#000000"
@@ -159,6 +160,7 @@
         app:layout_constraintVertical_bias="0.48000002">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="#000000"
@@ -199,7 +201,7 @@
         app:layout_constraintVertical_bias="0.573">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginPassword"
+            android:id="@+id/passwordTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"
@@ -239,6 +241,7 @@
         android:layout_marginBottom="70dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirmPasswordTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"

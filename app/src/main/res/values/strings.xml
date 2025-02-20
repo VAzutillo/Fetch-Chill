@@ -7,4 +7,7 @@
     <string name="check_up">Check Up</string>
     <string name="grooming">Grooming</string>
     <string name="training">Training</string>
+    <string name="nav_home_desc" />
+    <string name="nav_schedule_desc" />
+    <string name="nav_settings_desc" />
 </resources>
