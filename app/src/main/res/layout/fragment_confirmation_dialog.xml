@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="40dp"
+    android:layout_marginStart="30dp"
+    android:layout_marginTop="190dp"
+    android:background="@drawable/dialog_background"
+    android:orientation="vertical"
+    tools:context=".view.fragments.ConfirmationDialogFragment">
+
+    <ImageView
+        android:id="@+id/imgCheckmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/checkmark_icon"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/tvConfirmationMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We’ve got you confirmed for your appointment."
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/tvAppointmentDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10:30 AM | Dr. Smith"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_horizontal" />
+
+
+    <TextView
+        android:id="@+id/tvAppointmentDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FRIDAY, FEBRUARY 6, 2025"
+        android:textStyle="bold"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAppointments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/bg_color"
+        android:fontFamily="@font/lexenddeca_regular"
+        android:gravity="center"
+        android:text="MY APPOINTMENTS"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        android:layout_gravity="center_horizontal"
+
+        android:translationZ="4dp"
+        app:cornerRadius="15dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.SmallComponent"/>
+
+
+</LinearLayout>

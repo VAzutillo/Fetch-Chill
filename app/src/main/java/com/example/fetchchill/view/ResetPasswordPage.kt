@@ -21,7 +21,7 @@ class ResetPasswordPage : AppCompatActivity() {
         }
         val first = findViewById<Button>(R.id.resetToLoginPage)
         first.setOnClickListener {
-            val intent = Intent(this, LoginPage::class.java)
+            val intent = Intent(this, MainPage::class.java)
             startActivity(intent)
         }
         val first1 = findViewById<Button>(R.id.backToForgotPass)

@@ -22,7 +22,7 @@ class SplashScreen : AppCompatActivity() {
         }
         val first = findViewById<Button>(R.id.getStartedButton)
         first.setOnClickListener {
-            val intent = Intent(this, LoginPage::class.java)
+            val intent = Intent(this, SignUpPage::class.java)
             startActivity(intent)
         }
 

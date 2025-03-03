@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexenddeca_regular"
-        android:text="username*"
+        android:text="email*"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -95,13 +95,13 @@
         android:layout_marginBottom="150dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginUserInput"
+            android:id="@+id/loginUsernameTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="#000000"
             android:ellipsize="end"
             android:fontFamily="@font/lexenddeca_regular"
-            android:hint="username"
+            android:hint="email"
             android:inputType="text"
             android:letterSpacing="0.1"
             android:maxLines="1"
@@ -135,7 +135,7 @@
         android:layout_marginBottom="70dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginPassword"
+            android:id="@+id/loginPasswordTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"
@@ -152,7 +152,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/LoginPage"
+        android:id="@+id/LoginBtn"
         android:layout_width="320dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/buttons"

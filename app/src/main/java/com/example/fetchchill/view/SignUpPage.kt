@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -15,13 +16,16 @@ import com.example.fetchchill.api.RetrofitClient
 import com.example.fetchchill.databinding.ActivitySignUpPageBinding
 import com.example.fetchchill.model.SignUpResponse
 import com.example.fetchchill.model.User
+import com.example.fetchchill.viewmodel.AuthenticationViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class SignUpPage : AppCompatActivity() {
+
     private val apiService = RetrofitClient.apiService
     private lateinit var binding: ActivitySignUpPageBinding
+    private val viewModel = AuthenticationViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,9 +42,9 @@ class SignUpPage : AppCompatActivity() {
             signup()
         }
 
-        val first1 = findViewById<Button>(R.id.signUpToLoginPage)
+        val first1 = findViewById<ImageView>(R.id.signUpToSplashScreen)
         first1.setOnClickListener {
-            val intent = Intent(this, LoginPage::class.java)
+            val intent = Intent(this, SplashScreen::class.java)
             startActivity(intent)
         }
 
@@ -50,6 +54,8 @@ class SignUpPage : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
     private fun signup() {
         val username = binding.usernameTxt.text.toString()
         val email = binding.emailTxt.text.toString()
@@ -66,7 +72,7 @@ class SignUpPage : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val userRegistration = response.body()?.message
                     Toast.makeText(this@SignUpPage, userRegistration.toString(), Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@SignUpPage, MainPage::class.java)
+                    val intent = Intent(this@SignUpPage, LoginPage::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this@SignUpPage, "Registration failed", Toast.LENGTH_SHORT).show()
@@ -78,6 +84,8 @@ class SignUpPage : AppCompatActivity() {
             }
 
         })
+
+//        viewModel.login(user)
     }
 }
 
