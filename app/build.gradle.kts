@@ -64,4 +64,11 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
-}
+//    implementation(libs.glide)
+//    glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+    implementation(libs.glide)
+
+
+
+
+    }

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_color"
+    tools:context=".view.fragments.FragmentSetting">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Profile Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:elevation="4dp"
+            android:padding="1dp"
+            android:background="@drawable/setting_corner_radius"
+            android:layout_marginTop="20dp"
+            android:translationZ="4dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/login_img"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="20dp"
+                    android:contentDescription="Profile Image" />
+
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/lexenddeca_regular"
+                    android:text="Profiles"
+                    android:textSize="16sp"
+
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/tvOwnerName"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexenddeca_regular"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="55dp"
+                    android:textColor="@color/black"
+                    android:text="Vincent Azutillo"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexenddeca_regular"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="125dp"
+
+                    android:text="Petname"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tvPetName"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="155dp"
+                    android:fontFamily="@font/lexenddeca_regular"
+                    android:text="Eva"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="30dp"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:textStyle="bold"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="140dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/lexenddeca_regular"
+                    android:layout_marginTop="125dp"
+                    android:text="Breed"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tvBreed"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="140dp"
+                    android:fontFamily="@font/lexenddeca_regular"
+                    android:layout_marginTop="155dp"
+                    android:text="Golden Retriever"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="30dp"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="270dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/lexenddeca_regular"
+                    android:layout_marginTop="125dp"
+                    android:text="Age"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="270dp"
+                    android:fontFamily="@font/lexenddeca_regular"
+                    android:layout_marginTop="155dp"
+                    android:text="10"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="30dp"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:padding="2dp">
+
+
+
+        </LinearLayout>
+
+        <!-- Settings Options -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
+
+            <FrameLayout
+                android:id="@+id/EditFrame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/setting_corner_radius"
+                android:clickable="true"
+                android:focusable="true"
+                android:translationZ="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/edit_profile"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lexenddeca_regular"
+                        android:text="Edit Profile"
+                        android:textSize="14sp"
+                        android:paddingStart="12dp"
+                        android:layout_marginTop="2dp"
+                        android:textColor="@color/black"
+                        />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:background="@color/white1"
+                        android:src="@drawable/arrow_forward"
+                        android:layout_marginStart="175dp"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexenddeca_regular"
+                android:text="Account"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D3D3D3"/>
+
+            <FrameLayout
+                android:id="@+id/AccInfoFrame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/setting_corner_radius"
+                android:layout_marginTop="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:translationZ="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/account_information"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Account Information"
+                        android:fontFamily="@font/lexenddeca_regular"
+                        android:textSize="14sp"
+                        android:paddingStart="12dp"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/arrow_forward"
+                        android:layout_marginStart="105dp"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Support &amp; About"
+                android:textColor="@color/black"
+                android:fontFamily="@font/lexenddeca_regular"
+                android:layout_marginTop="20dp"/>
+
+            <FrameLayout
+                android:id="@+id/FAQFrame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:translationZ="4dp"
+                android:background="@drawable/setting_corner_radius">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/faq"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lexenddeca_regular"
+                        android:text="FAQ"
+                        android:textSize="14sp"
+                        android:paddingStart="12dp"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/arrow_forward"
+                        android:layout_marginStart="217dp"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/AboutUsFrame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/setting_corner_radius"
+                android:layout_marginTop="15dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:translationZ="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/about_us"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lexenddeca_regular"
+                        android:text="About Us"
+                        android:textSize="14sp"
+                        android:paddingStart="12dp"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/arrow_forward"
+                        android:layout_marginStart="185dp"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+            <FrameLayout
+                android:id="@+id/LogoutFrame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/setting_corner_radius"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:translationZ="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:translationZ="4dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/logout"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lexenddeca_regular"
+                        android:text="Logout"
+                        android:textSize="14sp"
+                        android:paddingStart="12dp"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/arrow_forward"
+                        android:layout_marginStart="197dp"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

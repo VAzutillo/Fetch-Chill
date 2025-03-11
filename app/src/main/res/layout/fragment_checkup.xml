@@ -64,7 +64,8 @@
         android:paddingStart="20dp"
         android:paddingEnd="10dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:translationZ="4dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,7 +88,8 @@
         android:paddingStart="20dp"
         android:paddingEnd="10dp"
         android:focusable="true"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:translationZ="4dp"/>
 
     <!-- Submit Button -->
     <com.google.android.material.button.MaterialButton
@@ -109,8 +111,7 @@
         android:layout_marginTop="40dp"
         app:strokeColor="@color/black"
         android:translationZ="4dp"
-        app:cornerRadius="15dp"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.SmallComponent"/>
+        app:cornerRadius="15dp" />
 
     </LinearLayout>
 

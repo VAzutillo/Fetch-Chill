@@ -3,6 +3,7 @@ package com.example.fetchchill.view
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,7 +25,7 @@ class ResetPasswordPage : AppCompatActivity() {
             val intent = Intent(this, MainPage::class.java)
             startActivity(intent)
         }
-        val first1 = findViewById<Button>(R.id.backToForgotPass)
+        val first1 = findViewById<ImageView>(R.id.backToForgotPass)
         first1.setOnClickListener {
             val intent = Intent(this, ForgotPasswordPage::class.java)
             startActivity(intent)
