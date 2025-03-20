@@ -1,0 +1,362 @@
+[
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_placeholder_foreground.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/placeholder_foreground.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xhdpi_placeholder.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xhdpi/placeholder.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xxxhdpi_placeholder_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xxxhdpi/placeholder_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-hdpi_placeholder.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-hdpi/placeholder.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_training.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/training.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_forgotpass_dog_1.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/forgotpass_dog_1.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_arrow_forward.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/arrow_forward.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_resetpass_dog.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/resetpass_dog.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_dialog_background.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/dialog_background.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-hdpi_placeholder_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-hdpi/placeholder_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-anydpi-v26_placeholder.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-anydpi-v26/placeholder.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_faq.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/faq.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_time.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/time.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-anydpi-v26_placeholder_round.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-anydpi-v26/placeholder_round.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_logout.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/logout.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_faq.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_faq.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_checkmark_icon.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/checkmark_icon.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_schedule.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/schedule.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-mdpi_placeholder_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-mdpi/placeholder_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_activity_login_page.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/activity_login_page.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_training.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_training.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_about_us.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_about_us.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_splash_dog.jpg.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/splash_dog.jpg"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_splash_txt.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/splash_txt.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_setting_fill.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/setting_fill.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_trainingimg.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/trainingimg.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/xml_backup_rules.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_chechup.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/chechup.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_account_information.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/account_information.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xhdpi_placeholder_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xhdpi/placeholder_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_activity_main_page.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/activity_main_page.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_item_schedule.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/item_schedule.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_groomingimg.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/groomingimg.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_vaccine.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_vaccine.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_error.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/error.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_activity_sign_up_page.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/activity_sign_up_page.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_about_us.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/about_us.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xxhdpi_placeholder.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xxhdpi/placeholder.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_arrow_back.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/arrow_back.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xxhdpi_placeholder_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xxhdpi/placeholder_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_vaccineimg.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/vaccineimg.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_edit_profile.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_edit_profile.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_corner.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/corner.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/font_lexenddeca_regular.ttf.flat",
+        "source": "com.example.fetchchill.app-main-37:/font/lexenddeca_regular.ttf"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_service.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/service.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_logo_img.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/logo_img.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/xml_network_security_config.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_account_information.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_account_information.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_activity_main.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_login_img.jpg.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/login_img.jpg"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_edit_profile.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/edit_profile.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_confirmation_dialog.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_confirmation_dialog.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_home.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/home.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xxxhdpi_placeholder.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xxxhdpi/placeholder.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_activity_splash_screen.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/activity_splash_screen.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_date.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/date.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_grooming.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/grooming.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_back_button.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/back_button.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_baseline_arrow_back_24.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/baseline_arrow_back_24.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_activity_forgot_password_page.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/activity_forgot_password_page.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_dog_signup.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/dog_signup.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-mdpi_placeholder.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-mdpi/placeholder.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_rounded_edittext.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/rounded_edittext.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_ic_error.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/ic_error.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_placeholder.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/placeholder.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_grooming.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_grooming.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_placeholder_background.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/placeholder_background.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_setting_corner_radius.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/setting_corner_radius.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_setting.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_setting.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_checkup.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_checkup.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_dog_login.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/dog_login.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/layout_fragment_schedule.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/layout/fragment_schedule.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.fetchchill.app-main-37:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_checkupimg.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/checkupimg.png"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_corner_2.xml.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/corner_2.xml"
+    },
+    {
+        "merged": "com.example.fetchchill.app-debug-35:/drawable_vaccine.png.flat",
+        "source": "com.example.fetchchill.app-main-37:/drawable/vaccine.png"
+    }
+]

@@ -18,6 +18,7 @@ class ConfirmationDialogFragment : DialogFragment() {
     private var param2: String? = null
     private var appointmentDate: Date? = null // Variable for the appointment date
 
+    private var onConfirmListener: (() -> Unit)? = null // Listener for confirmation
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -49,13 +50,17 @@ class ConfirmationDialogFragment : DialogFragment() {
             tvAppointmentDate.text = dateFormat.format(it)
         }
 
-        btnAppointments.setOnClickListener {
+        // Set a click listener on the dialog view to confirm the appointment
+        view.setOnClickListener {
+            onConfirmListener?.invoke() // Call the listener
             dismiss() // Close the dialog
-            // You can add logic here to navigate to the appointments screen if needed
         }
 
         builder.setView(view)
         return builder.create()
+    }
+    fun setOnConfirmListener(listener: () -> Unit) {
+        onConfirmListener = listener
     }
 
     companion object {

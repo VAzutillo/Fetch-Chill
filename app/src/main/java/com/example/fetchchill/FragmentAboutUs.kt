@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import com.example.fetchchill.view.MainPage
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,6 +53,18 @@ class FragmentAboutUs : Fragment() {
         return view
 
     }
+    override fun onResume() {
+        super.onResume()
+        // Disable frames when this fragment is visible
+        (activity as? MainPage)?.disableFrames()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Re-enable frames when navigating away from this fragment
+        (activity as? MainPage)?.enableFrames()
+    }
+
 
 
     companion object {

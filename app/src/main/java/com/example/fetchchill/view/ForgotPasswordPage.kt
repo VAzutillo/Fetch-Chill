@@ -8,7 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.fetchchill.R
+import com.example.fetchchill.R  
 
 class ForgotPasswordPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +22,7 @@ class ForgotPasswordPage : AppCompatActivity() {
         }
         val first = findViewById<Button>(R.id.Forgotpassbtn)
         first.setOnClickListener {
-            val intent = Intent(this, ResetPasswordPage::class.java)
+            val intent = Intent(this, MainPage::class.java)
             startActivity(intent)
         }
         val first1 = findViewById<ImageView>(R.id.backToLoginPage)

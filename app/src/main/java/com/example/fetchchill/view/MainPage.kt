@@ -19,7 +19,6 @@ import com.example.fetchchill.view.fragments.GroomingFragment
 
 class MainPage : AppCompatActivity() {
 
-    // Declare member variables for the frames
     private lateinit var checkUpFrame: FrameLayout
     private lateinit var groomingFrame: FrameLayout
     private lateinit var vaccineFrame: FrameLayout
@@ -28,17 +27,16 @@ class MainPage : AppCompatActivity() {
     private lateinit var nav_schedule: ImageButton
     private lateinit var nav_home: ImageButton
 
+    // Add a property to store the email
+    var userEmail: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main_page)
 
-        // Set up window insets
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        // Get the email from the intent
+        userEmail = intent.getStringExtra("USER_EMAIL") ?: ""
 
         // Initialize the frame layouts
         checkUpFrame = findViewById(R.id.checkUpFrame)
@@ -49,106 +47,55 @@ class MainPage : AppCompatActivity() {
         nav_schedule = findViewById(R.id.nav_schedule)
         nav_home = findViewById(R.id.nav_home)
 
-        // Set click listeners for each service
-        checkUpFrame.setOnClickListener { replaceFragment(FragmentCheckup()) }
-        groomingFrame.setOnClickListener { replaceFragment(GroomingFragment()) }
-        vaccineFrame.setOnClickListener { replaceFragment(FragmentVaccine()) }
-        trainingFrame.setOnClickListener { replaceFragment(FragmentTraining()) }
-        nav_settings.setOnClickListener { replaceFragment(FragmentSetting()) }
-        nav_schedule.setOnClickListener { replaceFragment(FragmentSchedule()) }
+        // Set up click listeners for each service
+        setupFrameClickListeners()
 
         // Set click listener for nav_home to start a new activity
         nav_home.setOnClickListener {
-            val intent = Intent(this, MainPage::class.java) // Replace HomeActivity with your target activity
+            val intent = Intent(this, MainPage::class.java)
+            // Make sure to pass the email to the new instance of MainPage
+            intent.putExtra("USER_EMAIL", userEmail)
             startActivity(intent)
         }
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        // Disable frames before navigating to another fragment
-        disableFrames()
-
+        disableFrames() // Disable frames when navigating to a fragment
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .addToBackStack(null)
             .commit()
     }
 
-    // Function to disable the clickable frames
-    private fun disableFrames() {
-        checkUpFrame.isClickable = false
-        checkUpFrame.isFocusable = false
-
-        groomingFrame.isClickable = false
-        groomingFrame.isFocusable = false
-
-        vaccineFrame.isClickable = false
-        vaccineFrame.isFocusable = false
-
-        trainingFrame.isClickable = false
-        trainingFrame.isFocusable = false
-    }
-
-    // Function to enable the clickable frames (when navigating back to the main page)
-    private fun enableFrames() {
-        // Only enable frames that are not already disabled
-        if (!checkUpFrame.isClickable) {
-            checkUpFrame.isClickable = true
-            checkUpFrame.isFocusable = true
-        }
-
-        if (!groomingFrame.isClickable) {
-            groomingFrame.isClickable = true
-            groomingFrame.isFocusable = true
-        }
-
-        if (!vaccineFrame.isClickable) {
-            vaccineFrame.isClickable = true
-            vaccineFrame.isFocusable = true
-        }
-
-        if (!trainingFrame.isClickable) {
-            trainingFrame.isClickable = true
-            trainingFrame.isFocusable = true
-        }
-    }
-
-    // Function to set up click listeners for frames
     private fun setupFrameClickListeners() {
-        checkUpFrame.setOnClickListener {
-            // Disable the frame after clicking
-            enableFrames()
-            // Perform your action here
-        }
-
-        groomingFrame.setOnClickListener {
-            // Disable the frame after clicking
-            enableFrames()
-            // Perform your action here
-        }
-
-        vaccineFrame.setOnClickListener {
-            // Disable the frame after clicking
-            enableFrames()
-            // Perform your action here
-        }
-
-        trainingFrame.setOnClickListener {
-            // Disable the frame after clicking
-            enableFrames()
-            // Perform your action here
-        }
+        checkUpFrame.setOnClickListener { replaceFragment(FragmentCheckup()) }
+        groomingFrame.setOnClickListener { replaceFragment(GroomingFragment()) }
+        vaccineFrame.setOnClickListener { replaceFragment(FragmentVaccine()) }
+        trainingFrame.setOnClickListener { replaceFragment(FragmentTraining()) }
+        nav_settings.setOnClickListener { replaceFragment(FragmentSetting()) }
+        nav_schedule.setOnClickListener { replaceFragment(FragmentSchedule()) }
     }
 
-    // Call this function in your onCreate or initialization method
-    private fun initialize() {
-        setupFrameClickListeners()
-        enableFrames() // Initially enable frames
-    }
-
-    // Optionally, handle the back button press to enable frames when returning to the home screen
     override fun onBackPressed() {
         super.onBackPressed()
-        enableFrames() // Re-enable the frames when navigating back
+        // Re-enable frames when navigating back to the main page
+        if (supportFragmentManager.backStackEntryCount == 0) {
+            enableFrames()
+        }
+    }
+
+    // Change visibility from private to internal or public
+    internal fun disableFrames() {
+        checkUpFrame.isClickable = false
+        groomingFrame.isClickable = false
+        vaccineFrame.isClickable = false
+        trainingFrame.isClickable = false
+    }
+
+    internal fun enableFrames() {
+        checkUpFrame.isClickable = true
+        groomingFrame.isClickable = true
+        vaccineFrame.isClickable = true
+        trainingFrame.isClickable = true
     }
 }

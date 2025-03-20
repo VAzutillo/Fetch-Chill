@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import com.example.fetchchill.view.MainPage
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,6 +42,13 @@ class FragmentAccountInformation : Fragment() {
         // Find the back button ImageView
         val backButton: ImageView = view.findViewById(R.id.backToSetting)
 
+        // Find the email TextView - make sure to use the correct ID from your XML
+        val emailTextView: TextView = view.findViewById(R.id.emailTextView)
+
+        // Get the email from MainPage activity and set it in the TextView
+        val userEmail = (activity as? MainPage)?.userEmail ?: "Email not available"
+        emailTextView.text = userEmail
+
         // Set an OnClickListener on the back button
         backButton.setOnClickListener {
             // Pop the current fragment from the back stack
@@ -47,6 +56,18 @@ class FragmentAccountInformation : Fragment() {
         }
 
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Disable frames when this fragment is visible
+        (activity as? MainPage)?.disableFrames()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Re-enable frames when navigating away from this fragment
+        (activity as? MainPage)?.enableFrames()
     }
 
     companion object {

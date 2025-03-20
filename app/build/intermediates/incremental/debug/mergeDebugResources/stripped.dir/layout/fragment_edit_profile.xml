@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/tertiary3"
+    tools:context=".FragmentEditProfile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center">
+
+
+        <ImageView
+            android:id="@+id/backToSetting"
+            android:layout_width="50dp"
+            android:layout_height="32dp"
+            android:layout_gravity="start"
+            android:background="@drawable/back_button"
+            android:contentDescription="Back Button"
+            android:src="@drawable/arrow_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:text="Edit Profile"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"/>
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dog_login"
+            />
+
+        <!-- Change Photo Text -->
+        <TextView
+            android:id="@+id/txtChangePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:text="Change Photo"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:text="Pet Owner"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="start"/>
+
+        <!-- Input Fields -->
+        <EditText
+            android:id="@+id/etOwner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:hint="Pet Owner*"
+            android:text="Steve Rogers"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:translationZ="4dp"
+            android:background="@drawable/setting_corner_radius"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:text="Pet Name"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="start"/>
+
+        <EditText
+            android:id="@+id/etPetName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:hint="Petname*"
+            android:text="Max"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:translationZ="4dp"
+            android:background="@drawable/setting_corner_radius"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:text="Breed"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="start"/>
+
+        <EditText
+            android:id="@+id/etBreed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:hint="Breed*"
+            android:text="Golden Retriever"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:translationZ="4dp"
+            android:background="@drawable/setting_corner_radius"/>
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:text="Age"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="start"/>
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:hint="Age*"
+            android:text="10"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:translationZ="4dp"
+            android:background="@drawable/setting_corner_radius"/>
+
+        <!-- Save Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bg_color"
+            android:fontFamily="@font/lexenddeca_regular"
+            android:gravity="center"
+            android:text="Save"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:translationZ="10dp"
+            app:cornerRadius="15dp"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

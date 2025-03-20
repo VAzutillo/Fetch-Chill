@@ -6,6 +6,8 @@ import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,6 +24,7 @@ import com.bumptech.glide.request.RequestListener
 import com.example.fetchchill.R
 import com.example.fetchchill.api.ApiService
 import com.example.fetchchill.model.ProfileSaveResponse
+import com.example.fetchchill.view.MainPage
 import com.google.android.material.button.MaterialButton
 import com.google.gson.GsonBuilder
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -104,6 +107,16 @@ class FragmentEditProfile : Fragment() {
 
         return view
     }
+    override fun onResume() {
+        super.onResume()
+        loadProfileData() // Reload profile data when returning to the settings screen
+        (activity as? MainPage)?.disableFrames() // Disable frames when this fragment is visible
+    }
+
+    override fun onPause() {
+        super.onPause()
+        (activity as? MainPage)?.enableFrames() // Re-enable frames when navigating away from this fragment
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -111,6 +124,7 @@ class FragmentEditProfile : Fragment() {
             val imageUri: Uri? = data.data
             imageUri?.let {
                 currentImagePath = getImageFilePath(it)
+                Log.d("ImagePath", "Current Image Path: $currentImagePath") // Log the image path
                 Glide.with(this).load(it).into(imgProfile)
             }
         }
@@ -143,23 +157,41 @@ class FragmentEditProfile : Fragment() {
         val call = apiService.saveProfile(ownerNameBody, petNameBody, breedBody, ageBody, imagePart)
         call.enqueue(object : Callback<ProfileSaveResponse> {
             override fun onResponse(call: Call<ProfileSaveResponse>, response: Response<ProfileSaveResponse>) {
-                if (response.isSuccessful) {
-                    Toast.makeText(requireContext(), "Profile updated successfully", Toast.LENGTH_SHORT).show()
+                if (isAdded) {
+                    if (response.isSuccessful) {
+                        // Get the image URL from response
+                        val imageUrl = response.body()?.image_url
 
-                    // Save to SharedPreferences
-                    saveToSharedPreferences(ownerName, petName, breed, age, response.body()?.image_url)
+                        // Save to SharedPreferences
+                        saveToSharedPreferences(ownerName, petName, breed, age, imageUrl)
 
-                    // Optionally, navigate back or refresh UI
-                    requireActivity().supportFragmentManager.popBackStack()
-                } else {
-                    Log.e("API Error", "Failed response: ${response.errorBody()?.string()}")
-                    Toast.makeText(requireContext(), "Failed: ${response.message()}", Toast.LENGTH_SHORT).show()
+                        // Update the image view with the new URL
+                        if (!imageUrl.isNullOrEmpty()) {
+                            Glide.with(requireContext())
+                                .load(imageUrl)
+                                .placeholder(R.drawable.placeholder)
+                                .into(imgProfile)
+                        }
+
+                        Toast.makeText(requireContext(), "Profile updated successfully", Toast.LENGTH_SHORT).show()
+
+                        // Wait a moment before navigating back
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            if (isAdded) {
+                                requireActivity().supportFragmentManager.popBackStack()
+                            }
+                        }, 500) // Half-second delay to show the updated image
+                    } else {
+                        // Your existing error handling
+                    }
                 }
             }
 
             override fun onFailure(call: Call<ProfileSaveResponse>, t: Throwable) {
-                Log.e("API Error", "Request failed: ${t.message}")
-                Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                if (isAdded) { // Check if the fragment is still added to its activity
+                    Log.e("API Error", "Request failed: ${t.message}")
+                    Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
             }
         })
     }
@@ -180,13 +212,30 @@ class FragmentEditProfile : Fragment() {
 
         // Load profile image using Glide
         if (!imageUrl.isNullOrEmpty()) {
+            val imageSource = if (imageUrl.startsWith("http")) {
+                imageUrl // Use as-is if it's a URL
+            } else {
+                File(imageUrl) // Use as file if it's a local path
+            }
+
             Glide.with(this)
-                .load(imageUrl)
-                .placeholder(R.drawable.placeholder) // Placeholder while loading
-                .error(R.drawable.error) // Error image if loading fails
+                .load(imageSource)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error)
+                .listener(object : RequestListener<Drawable> {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                        Log.e("ImageLoading", "Failed to load image: $imageUrl", e)
+                        return false
+                    }
+
+                    override fun onResourceReady(resource: Drawable?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        Log.d("ImageLoading", "Successfully loaded image: $imageUrl")
+                        return false
+                    }
+                })
                 .into(imgProfile)
         } else {
-            imgProfile.setImageResource(R.drawable.placeholder) // Set a default placeholder if no image URL is available
+            imgProfile.setImageResource(R.drawable.placeholder)
         }
     }
 

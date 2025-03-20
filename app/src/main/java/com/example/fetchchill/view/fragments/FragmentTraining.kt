@@ -4,19 +4,23 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.fetchchill.R
+import com.example.fetchchill.view.BaseAppointmentFragment
+import com.example.fetchchill.view.MainPage
 import java.util.*
 
-class FragmentTraining : Fragment() {
+class FragmentTraining : BaseAppointmentFragment() {
 
     private lateinit var etDate: EditText
     private lateinit var etTime: EditText
@@ -34,13 +38,13 @@ class FragmentTraining : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_training, container, false)
+        val view = inflater.inflate(R.layout.fragment_checkup, container, false)
 
         // Initialize EditText fields
         etDate = view.findViewById(R.id.etDate)
         etTime = view.findViewById(R.id.etTime)
-        btnSubmit = view.findViewById(R.id.SubmitBtnTraining) // Initialize the submit button
-        backButton = view.findViewById(R.id.backButtonTraining) // Initialize the back button
+        btnSubmit = view.findViewById(R.id.SubmitBtnCheckUp) // Initialize the submit button
+        backButton = view.findViewById(R.id.backButtonCheckup) // Initialize the back button
 
         // Set click listeners for date and time EditTexts
         etDate.setOnClickListener { showDatePicker() }
@@ -55,12 +59,31 @@ class FragmentTraining : Fragment() {
 
         // Set click listener for the submit button
         btnSubmit.setOnClickListener {
+            // Validate input fields
+            val appointmentDate = etDate.text.toString()
+            val appointmentTime = etTime.text.toString()
+
+            if (appointmentDate.isEmpty() || appointmentTime.isEmpty()) {
+                showToast("Please select both date and time.")
+                return@setOnClickListener
+            }
+
             // Show the confirmation dialog when the button is clicked
             val confirmationDialog = ConfirmationDialogFragment.newInstance(
                 "We’ve got you confirmed for your appointment.",
                 "${etTime.text} | Dr. Smith", // Customize this as needed
                 selectedDate ?: Date() // Pass the selected date or current date as default
             )
+
+            confirmationDialog.setOnConfirmListener {
+                // If the user confirms, proceed to create the appointment
+                val userId = 1 // Replace with actual user ID
+                val serviceType = "Training" // Define the service type
+
+                // Call the createAppointment method from BaseAppointmentFragment
+                createAppointment(userId, serviceType, appointmentDate, appointmentTime)
+            }
+
             confirmationDialog.show(parentFragmentManager, "confirmationDialog")
         }
 
@@ -71,6 +94,19 @@ class FragmentTraining : Fragment() {
         }
 
         return view
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Disable frames when this fragment is visible
+        (activity as? MainPage)?.disableFrames()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Re-enable frames when navigating away from this fragment
+        (activity as? MainPage)?.enableFrames()
     }
 
     @SuppressLint("DefaultLocale")
@@ -80,23 +116,26 @@ class FragmentTraining : Fragment() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        val datePicker =
-            DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
-                selectedDate = Calendar.getInstance().apply {
-                    set(Calendar.YEAR, selectedYear)
-                    set(Calendar.MONTH, selectedMonth)
-                    set(Calendar.DAY_OF_MONTH, selectedDay)
-                }.time // Store the selected date
+        // Create a DatePickerDialog
+        val datePicker = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
+            selectedDate = Calendar.getInstance().apply {
+                set(Calendar.YEAR, selectedYear)
+                set(Calendar.MONTH, selectedMonth)
+                set(Calendar.DAY_OF_MONTH, selectedDay)
+            }.time // Store the selected date
 
-                etDate.setText(
-                    String.format(
-                        "%02d/%02d/%d",
-                        selectedMonth + 1,
-                        selectedDay,
-                        selectedYear
-                    )
+            etDate.setText(
+                String.format(
+                    "%d-%02d-%02d",
+                    selectedYear,
+                    selectedMonth + 1,
+                    selectedDay
                 )
-            }, year, month, day)
+            )
+        }, year, month, day)
+
+        // Set the minimum date to today
+        datePicker.datePicker.minDate = System.currentTimeMillis() // Disable past dates
 
         datePicker.show()
     }
@@ -108,6 +147,12 @@ class FragmentTraining : Fragment() {
         val minute = calendar.get(Calendar.MINUTE)
 
         val timePicker = TimePickerDialog(requireContext(), { _, selectedHour, selectedMinute ->
+            // Check if the selected time is within the allowed range
+            if (selectedHour < 7 || selectedHour > 17) {
+                showToast("Please select a time between 7 AM and 5 PM.")
+                return@TimePickerDialog // Exit if the time is not valid
+            }
+
             etTime.setText(
                 String.format(
                     "%02d:%02d %s",

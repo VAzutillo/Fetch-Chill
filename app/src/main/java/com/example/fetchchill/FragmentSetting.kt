@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.fetchchill.view.MainActivity
+import com.example.fetchchill.view.MainPage
 import com.example.fetchchill.view.fragments.FragmentEditProfile
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -25,7 +26,7 @@ class FragmentSetting : Fragment() {
     private lateinit var accInfoFrame: FrameLayout
     private lateinit var faqFrame: FrameLayout
     private lateinit var aboutUsFrame: FrameLayout
-    private lateinit var logoutFrame: FrameLayout // Add this line for logout frame
+    private lateinit var logoutFrame: FrameLayout
 
     private lateinit var imgProfile: ImageView
     private lateinit var tvOwnerName: TextView
@@ -34,7 +35,7 @@ class FragmentSetting : Fragment() {
     private lateinit var tvAge: TextView
     private lateinit var sharedPref: SharedPreferences
 
-    private val client = OkHttpClient() // Initialize OkHttpClient
+    private val client = OkHttpClient()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -46,7 +47,7 @@ class FragmentSetting : Fragment() {
         accInfoFrame = view.findViewById(R.id.AccInfoFrame)
         faqFrame = view.findViewById(R.id.FAQFrame)
         aboutUsFrame = view.findViewById(R.id.AboutUsFrame)
-        logoutFrame = view.findViewById(R.id.LogoutFrame) // Initialize logout frame
+        logoutFrame = view.findViewById(R.id.LogoutFrame)
         imgProfile = view.findViewById(R.id.imgProfile)
         tvOwnerName = view.findViewById(R.id.tvOwnerName)
         tvPetName = view.findViewById(R.id.tvPetName)
@@ -59,13 +60,11 @@ class FragmentSetting : Fragment() {
         // Load and display profile data
         loadProfileData()
 
-        // Set click listener for Edit Profile
+        // Set click listeners for frames
         editFrame.setOnClickListener { replaceFragment(FragmentEditProfile()) }
-        accInfoFrame.setOnClickListener { replaceFragment(FragmentEditProfile()) }
-        faqFrame.setOnClickListener { replaceFragment(FragmentEditProfile()) }
-        aboutUsFrame.setOnClickListener { replaceFragment(FragmentEditProfile()) }
-
-        // Set click listener for Logout
+        accInfoFrame.setOnClickListener { replaceFragment(FragmentAccountInformation()) }
+        faqFrame.setOnClickListener { replaceFragment(FragmentFaq()) }
+        aboutUsFrame.setOnClickListener { replaceFragment(FragmentAboutUs()) }
         logoutFrame.setOnClickListener { logout() }
 
         return view
@@ -74,6 +73,12 @@ class FragmentSetting : Fragment() {
     override fun onResume() {
         super.onResume()
         loadProfileData() // Reload profile data when returning to the settings screen
+        (activity as? MainPage)?.disableFrames() // Disable frames when this fragment is visible
+    }
+
+    override fun onPause() {
+        super.onPause()
+        (activity as? MainPage)?.enableFrames() // Re-enable frames when navigating away from this fragment
     }
 
     private fun loadProfileData() {

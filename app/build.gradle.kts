@@ -25,10 +25,8 @@ android {
                 "proguard-rules.pro"
             )
         }
-        buildFeatures {
-            viewBinding = true
-        }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -36,39 +34,41 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
 
 dependencies {
-
+    // AndroidX libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 
-
-    //viewmodel
+    // ViewModel and LiveData
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
-    //http client
-    implementation(libs.logging.interceptor)
-    implementation(libs.okhttp)
-
-    //retrofit and json response converter
+    // Retrofit and Gson
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
-//    implementation(libs.glide)
-//    glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+
+    // OkHttp and Logging Interceptor
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
+//    // Kotlin Coroutines
+//    implementation(libs.coroutines.core)
+//    implementation(libs.coroutines.android)
+
+    // Glide for image loading
     implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
 
-
-
-
-    }
+    // Testing libraries
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+}

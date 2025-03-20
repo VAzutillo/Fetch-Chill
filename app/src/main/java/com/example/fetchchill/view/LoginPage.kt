@@ -58,7 +58,7 @@ class LoginPage : AppCompatActivity() {
         val password = binding.loginPasswordTxt.text.toString()
 
         // Create a LoginUser  object with the email and password
-        val user = LoginUser (email = email, password = password)
+        val user = LoginUser(email = email, password = password)
 
         // Call the API with the LoginUser  object
         apiService.userLogin(user).enqueue(object : Callback<LoginResponse> {
@@ -66,16 +66,26 @@ class LoginPage : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     if (loginResponse != null && loginResponse.success) {
-                        Toast.makeText(this@LoginPage, "Login successful!", Toast.LENGTH_SHORT).show()
-                        // Navigate to the main page
+                        Toast.makeText(this@LoginPage, "Login successful!", Toast.LENGTH_SHORT)
+                            .show()
+                        // Navigate to the main page and pass the email
                         val intent = Intent(this@LoginPage, MainPage::class.java)
+                        intent.putExtra("USER_EMAIL", email) // Pass the email
                         startActivity(intent)
                         finish() // Close the LoginPage
                     } else {
-                        Toast.makeText(this@LoginPage, "Login failed: ${loginResponse?.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@LoginPage,
+                            "Login failed: ${loginResponse?.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 } else {
-                    Toast.makeText(this@LoginPage, "Login failed: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@LoginPage,
+                        "Login failed: ${response.message()}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
@@ -84,4 +94,5 @@ class LoginPage : AppCompatActivity() {
             }
         })
     }
+
 }

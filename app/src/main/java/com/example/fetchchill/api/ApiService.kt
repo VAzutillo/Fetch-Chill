@@ -1,16 +1,6 @@
 package com.example.fetchchill.api
 
-import com.example.fetchchill.model.EmailCheckResponse
-import com.example.fetchchill.model.EmailRequest
-import com.example.fetchchill.model.LoginResponse
-import com.example.fetchchill.model.SignUpResponse
-import com.example.fetchchill.model.User
-import com.example.fetchchill.model.LoginUser
-import com.example.fetchchill.model.LogoutResponse
-import com.example.fetchchill.model.ProfileResponse
-import com.example.fetchchill.model.ProfileSaveResponse
-import com.example.fetchchill.model.UsernameCheckResponse
-import com.example.fetchchill.model.UsernameRequest
+import com.example.fetchchill.model.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -18,27 +8,27 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    // Sign-up API (Registers a new user)
+    // Sign-up API
     @Headers("Content-Type: application/json")
     @POST("signup.php")
     fun signUp(@Body user: User): Call<SignUpResponse>
 
     // Check Username API
     @Headers("Content-Type: application/json")
-    @POST("check-username.php") // Updated to use the correct endpoint
+    @POST("check-username.php")
     fun checkUsername(@Body request: UsernameRequest): Call<UsernameCheckResponse>
 
     // Check Email API
     @Headers("Content-Type: application/json")
-    @POST("check-email.php") // Updated to use the correct endpoint
+    @POST("check-email.php")
     fun checkEmail(@Body request: EmailRequest): Call<EmailCheckResponse>
 
-    // Login API (Authenticates a user)
+    // Login API
     @Headers("Content-Type: application/json")
     @POST("login.php")
     fun userLogin(@Body user: LoginUser ): Call<LoginResponse>
 
-    // Save Profile API (Saves user profile with an optional image upload)
+    // Save Profile API
     @Multipart
     @POST("saveProfile.php")
     fun saveProfile(
@@ -46,7 +36,7 @@ interface ApiService {
         @Part("pet_name") petName: RequestBody,
         @Part("breed") breed: RequestBody,
         @Part("age") age: RequestBody,
-        @Part profile_image: MultipartBody.Part? // Image is optional
+        @Part profile_image: MultipartBody.Part? // Optional image
     ): Call<ProfileSaveResponse>
 
     // Get Profile API
@@ -55,6 +45,19 @@ interface ApiService {
 
     // Logout API
     @Headers("Content-Type: application/json")
-    @POST("logout.php") // Adjust the path as necessary
-    fun logout(): Call<LogoutResponse> // Assuming you have a LogoutResponse model
+    @POST("logout.php")
+    fun logout(): Call<LogoutResponse>
+
+    // Get All Appointments API
+    @GET("api/index.php/appointment")
+    fun getAllAppointments(): Call<List<Appointment>>
+
+    // Create Appointment API
+    @Headers("Content-Type: application/json")
+    @POST("api/index.php/appointment")
+    fun createAppointment(@Body appointment: AppointmentRequest): Call<ResponseMessage>
+
+    // Get Specific Appointment API
+    @GET("api/index.php/getAppointment/{id}")
+    fun getAppointment(@Path("id") id: Int): Call<Appointment>
 }
