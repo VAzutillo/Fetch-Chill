@@ -79,8 +79,10 @@ id backToSetting
 id btnAppointments
 id btnSave
 id checkUpFrame
+id confirmPasswordEditText
 id confirmPasswordHint
 id confirmPasswordTxt
+id emailEditText
 id emailHint
 id emailTextView
 id emailTxt
@@ -97,6 +99,7 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
+id imgAppointmentService
 id imgCheckmark
 id imgProfile
 id loginPasswordTxt
@@ -105,8 +108,11 @@ id main
 id nav_home
 id nav_schedule
 id nav_settings
+id newPasswordEditText
 id passwordHint
 id passwordTxt
+id progressBarAppointments
+id recyclerViewAppointments
 id signUpToSplashScreen
 id splash_logo
 id splash_screen
@@ -115,9 +121,7 @@ id textInputLayout3
 id textInputLayout7
 id textInputLayout8
 id textView
-id textView1
 id textView2
-id textView3
 id toForgotPassword
 id toLoginPage
 id toSignupPage
@@ -125,6 +129,8 @@ id trainingFrame
 id tvAge
 id tvAppointmentDate
 id tvAppointmentDetails
+id tvAppointmentError
+id tvAppointmentService
 id tvBreed
 id tvConfirmationMessage
 id tvOwnerName

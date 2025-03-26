@@ -1,3 +1,4 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -26,6 +27,8 @@ android {
             )
         }
     }
+
+
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -59,9 +62,9 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
 
-//    // Kotlin Coroutines
-//    implementation(libs.coroutines.core)
-//    implementation(libs.coroutines.android)
+    // Coroutines
+    implementation (libs.jetbrains.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
 
     // Glide for image loading
     implementation(libs.glide)

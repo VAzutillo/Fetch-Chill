@@ -4,6 +4,7 @@ package com.example.fetchchill.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -20,20 +21,30 @@ public final class ItemScheduleBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView textView1;
+  public final ImageView imgAppointmentService;
 
   @NonNull
   public final TextView textView2;
 
   @NonNull
-  public final TextView textView3;
+  public final TextView tvAppointmentDate;
 
-  private ItemScheduleBinding(@NonNull LinearLayout rootView, @NonNull TextView textView1,
-      @NonNull TextView textView2, @NonNull TextView textView3) {
+  @NonNull
+  public final TextView tvAppointmentDetails;
+
+  @NonNull
+  public final TextView tvAppointmentService;
+
+  private ItemScheduleBinding(@NonNull LinearLayout rootView,
+      @NonNull ImageView imgAppointmentService, @NonNull TextView textView2,
+      @NonNull TextView tvAppointmentDate, @NonNull TextView tvAppointmentDetails,
+      @NonNull TextView tvAppointmentService) {
     this.rootView = rootView;
-    this.textView1 = textView1;
+    this.imgAppointmentService = imgAppointmentService;
     this.textView2 = textView2;
-    this.textView3 = textView3;
+    this.tvAppointmentDate = tvAppointmentDate;
+    this.tvAppointmentDetails = tvAppointmentDetails;
+    this.tvAppointmentService = tvAppointmentService;
   }
 
   @Override
@@ -63,9 +74,9 @@ public final class ItemScheduleBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.textView1;
-      TextView textView1 = ViewBindings.findChildViewById(rootView, id);
-      if (textView1 == null) {
+      id = R.id.imgAppointmentService;
+      ImageView imgAppointmentService = ViewBindings.findChildViewById(rootView, id);
+      if (imgAppointmentService == null) {
         break missingId;
       }
 
@@ -75,13 +86,26 @@ public final class ItemScheduleBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView3;
-      TextView textView3 = ViewBindings.findChildViewById(rootView, id);
-      if (textView3 == null) {
+      id = R.id.tvAppointmentDate;
+      TextView tvAppointmentDate = ViewBindings.findChildViewById(rootView, id);
+      if (tvAppointmentDate == null) {
         break missingId;
       }
 
-      return new ItemScheduleBinding((LinearLayout) rootView, textView1, textView2, textView3);
+      id = R.id.tvAppointmentDetails;
+      TextView tvAppointmentDetails = ViewBindings.findChildViewById(rootView, id);
+      if (tvAppointmentDetails == null) {
+        break missingId;
+      }
+
+      id = R.id.tvAppointmentService;
+      TextView tvAppointmentService = ViewBindings.findChildViewById(rootView, id);
+      if (tvAppointmentService == null) {
+        break missingId;
+      }
+
+      return new ItemScheduleBinding((LinearLayout) rootView, imgAppointmentService, textView2,
+          tvAppointmentDate, tvAppointmentDetails, tvAppointmentService);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

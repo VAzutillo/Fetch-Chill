@@ -4,17 +4,17 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.fragment.app.Fragment
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.fetchchill.R
+import com.example.fetchchill.utils.AuthManager
+import com.example.fetchchill.view.fragments.ConfirmationDialogFragment
 import com.example.fetchchill.view.BaseAppointmentFragment
 import com.example.fetchchill.view.MainPage
 import java.util.*
@@ -24,12 +24,14 @@ class FragmentVaccine : BaseAppointmentFragment() {
     private lateinit var etDate: EditText
     private lateinit var etTime: EditText
     private lateinit var btnSubmit: Button
-    private lateinit var backButton: ImageView // Declare the back button
-    private var selectedDate: Date? = null // Variable to hold the selected date
+    private lateinit var backButton: ImageView
+    private var selectedDate: Date? = null
+    private lateinit var authManager: AuthManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Handle any arguments if needed
+        // Initialize AuthManager using the static instance
+        authManager = AuthManager(requireActivity().getSharedPreferences("MyAppPrefs", 0))
     }
 
     override fun onCreateView(
@@ -39,13 +41,13 @@ class FragmentVaccine : BaseAppointmentFragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_vaccine, container, false)
 
-        // Initialize EditText fields
+        // Initialize views
         etDate = view.findViewById(R.id.etDate)
         etTime = view.findViewById(R.id.etTime)
-        btnSubmit = view.findViewById(R.id.SubmitBtnVaccine) // Initialize the submit button
-        backButton = view.findViewById(R.id.backButtonVaccine) // Initialize the back button
+        btnSubmit = view.findViewById(R.id.SubmitBtnVaccine)
+        backButton = view.findViewById(R.id.backButtonVaccine)
 
-        // Set click listeners for date and time EditTexts
+        // Set click listeners
         etDate.setOnClickListener { showDatePicker() }
         etTime.setOnClickListener { showTimePicker() }
 
@@ -67,19 +69,23 @@ class FragmentVaccine : BaseAppointmentFragment() {
                 return@setOnClickListener
             }
 
-            // Show the confirmation dialog when the button is clicked
+            // Get the logged-in user's ID
+            val userId = authManager.userId()
+            if (userId == -1) {
+                showToast("Please login first.")
+                return@setOnClickListener
+            }
+
+            // Show the confirmation dialog
             val confirmationDialog = ConfirmationDialogFragment.newInstance(
-                "We’ve got you confirmed for your appointment.",
-                "${etTime.text} | Dr. Smith", // Customize this as needed
-                selectedDate ?: Date() // Pass the selected date or current date as default
+                "We've got you confirmed for your appointment.",
+                "${etTime.text} | Dr. Smith",
+                selectedDate ?: Date()
             )
 
             confirmationDialog.setOnConfirmListener {
                 // If the user confirms, proceed to create the appointment
-                val userId = 1 // Replace with actual user ID
-                val serviceType = "Checkup" // Define the service type
-
-                // Call the createAppointment method from BaseAppointmentFragment
+                val serviceType = "Vaccine"
                 createAppointment(userId, serviceType, appointmentDate, appointmentTime)
             }
 
@@ -88,7 +94,6 @@ class FragmentVaccine : BaseAppointmentFragment() {
 
         // Set click listener for the back button
         backButton.setOnClickListener {
-            // Pop the current fragment from the back stack
             parentFragmentManager.popBackStack()
         }
 
@@ -97,13 +102,11 @@ class FragmentVaccine : BaseAppointmentFragment() {
 
     override fun onResume() {
         super.onResume()
-        // Disable frames when this fragment is visible
         (activity as? MainPage)?.disableFrames()
     }
 
     override fun onPause() {
         super.onPause()
-        // Re-enable frames when navigating away from this fragment
         (activity as? MainPage)?.enableFrames()
     }
 
@@ -114,13 +117,12 @@ class FragmentVaccine : BaseAppointmentFragment() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        // Create a DatePickerDialog
         val datePicker = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
             selectedDate = Calendar.getInstance().apply {
                 set(Calendar.YEAR, selectedYear)
                 set(Calendar.MONTH, selectedMonth)
                 set(Calendar.DAY_OF_MONTH, selectedDay)
-            }.time // Store the selected date
+            }.time
 
             etDate.setText(
                 String.format(
@@ -132,9 +134,7 @@ class FragmentVaccine : BaseAppointmentFragment() {
             )
         }, year, month, day)
 
-        // Set the minimum date to today
-        datePicker.datePicker.minDate = System.currentTimeMillis() // Disable past dates
-
+        datePicker.datePicker.minDate = System.currentTimeMillis()
         datePicker.show()
     }
 
@@ -145,10 +145,9 @@ class FragmentVaccine : BaseAppointmentFragment() {
         val minute = calendar.get(Calendar.MINUTE)
 
         val timePicker = TimePickerDialog(requireContext(), { _, selectedHour, selectedMinute ->
-            // Check if the selected time is within the allowed range
             if (selectedHour < 7 || selectedHour > 17) {
                 showToast("Please select a time between 7 AM and 5 PM.")
-                return@TimePickerDialog // Exit if the time is not valid
+                return@TimePickerDialog
             }
 
             etTime.setText(

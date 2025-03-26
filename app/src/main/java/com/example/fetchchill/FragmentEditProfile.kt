@@ -1,13 +1,13 @@
 package com.example.fetchchill.view.fragments
 
+import ProfileResponse
+import ProfileSaveResponse
 import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,13 +18,11 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.example.fetchchill.R
 import com.example.fetchchill.api.ApiService
-import com.example.fetchchill.model.ProfileSaveResponse
-import com.example.fetchchill.view.MainPage
+import com.example.fetchchill.utils.AuthManager
 import com.google.android.material.button.MaterialButton
 import com.google.gson.GsonBuilder
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -50,6 +48,7 @@ class FragmentEditProfile : Fragment() {
     private var currentImagePath: String? = null
     private lateinit var apiService: ApiService
     private lateinit var sharedPref: SharedPreferences
+    private var userId: Int = -1
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -68,27 +67,40 @@ class FragmentEditProfile : Fragment() {
         backToSetting = view.findViewById(R.id.backToSetting)
 
         // Initialize SharedPreferences
-        sharedPref = requireActivity().getSharedPreferences("User  Profile", Activity.MODE_PRIVATE)
+        sharedPref = requireActivity().getSharedPreferences("MyAppPrefs", Activity.MODE_PRIVATE)
 
-        backToSetting.setOnClickListener {
+        // Retrieve userId
+        val authManager = AuthManager(sharedPref)
+        userId = authManager.userId()
+        Log.d("FragmentEditProfile", "Retrieved userId: $userId")
+
+        if (userId == -1) {
+            Toast.makeText(requireContext(), "User ID not found. Please log in again.", Toast.LENGTH_LONG).show()
             requireActivity().supportFragmentManager.popBackStack()
+            return view
         }
 
         // Initialize Retrofit
         val gson = GsonBuilder().setLenient().create()
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.100.18/fetch_chill/") // Replace with your actual server IP
+            .baseUrl("http://192.168.100.18/fetch_chill/") // Base URL for your API
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
         apiService = retrofit.create(ApiService::class.java)
 
-        // Load existing profile data
+        // Load profile data
         loadProfileData()
 
+        // Set click listeners
         imgProfile.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(intent, PICK_IMAGE_REQUEST)
+        }
+
+        // Add click listener for backToSetting
+        backToSetting.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         btnSave.setOnClickListener {
@@ -107,16 +119,6 @@ class FragmentEditProfile : Fragment() {
 
         return view
     }
-    override fun onResume() {
-        super.onResume()
-        loadProfileData() // Reload profile data when returning to the settings screen
-        (activity as? MainPage)?.disableFrames() // Disable frames when this fragment is visible
-    }
-
-    override fun onPause() {
-        super.onPause()
-        (activity as? MainPage)?.enableFrames() // Re-enable frames when navigating away from this fragment
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -124,8 +126,11 @@ class FragmentEditProfile : Fragment() {
             val imageUri: Uri? = data.data
             imageUri?.let {
                 currentImagePath = getImageFilePath(it)
-                Log.d("ImagePath", "Current Image Path: $currentImagePath") // Log the image path
-                Glide.with(this).load(it).into(imgProfile)
+                Glide.with(this)
+                    .load(it)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.error)
+                    .into(imgProfile)
             }
         }
     }
@@ -133,9 +138,7 @@ class FragmentEditProfile : Fragment() {
     private fun getImageFilePath(uri: Uri): String {
         val inputStream: InputStream? = requireContext().contentResolver.openInputStream(uri)
         val file = File(requireContext().cacheDir, "selected_image.jpg")
-        val outputStream =
-
-            FileOutputStream(file)
+        val outputStream = FileOutputStream(file)
         inputStream?.copyTo(outputStream)
         inputStream?.close()
         outputStream.close()
@@ -143,100 +146,160 @@ class FragmentEditProfile : Fragment() {
     }
 
     private fun saveProfile(ownerName: String, petName: String, breed: String, age: String, imagePath: String?) {
+        // Log the data being sent
+        Log.d("FragmentEditProfile", "Saving profile with: ownerName=$ownerName, petName=$petName, breed=$breed, age=$age, imagePath=$imagePath, userId=$userId")
+
+        // Create RequestBody instances for the text fields - FIXED ORDER TO MATCH API INTERFACE
+        val userIdBody = RequestBody.create("text/plain".toMediaTypeOrNull(), userId.toString())
         val ownerNameBody = RequestBody.create("text/plain".toMediaTypeOrNull(), ownerName)
         val petNameBody = RequestBody.create("text/plain".toMediaTypeOrNull(), petName)
         val breedBody = RequestBody.create("text/plain".toMediaTypeOrNull(), breed)
         val ageBody = RequestBody.create("text/plain".toMediaTypeOrNull(), age)
 
+        // Prepare the image part if an image path is provided
         val imagePart = imagePath?.let {
             val file = File(it)
             val requestFile = RequestBody.create("image/*".toMediaTypeOrNull(), file)
-            MultipartBody.Part.createFormData("profile_image", file.name, requestFile)
+            MultipartBody.Part.createFormData("image", file.name, requestFile)
         }
 
-        val call = apiService.saveProfile(ownerNameBody, petNameBody, breedBody, ageBody, imagePart)
+        // Show a loading message
+        Toast.makeText(requireContext(), "Saving profile...", Toast.LENGTH_SHORT).show()
+
+        // Call the API to save the profile - FIXED ORDER TO MATCH API INTERFACE
+        val call = apiService.saveProfile(userIdBody, ownerNameBody, petNameBody, breedBody, ageBody, imagePart)
+
+        // Add detailed debugging logs
+        Log.d("API_DEBUG", "Making API call with userId: $userId")
+
         call.enqueue(object : Callback<ProfileSaveResponse> {
             override fun onResponse(call: Call<ProfileSaveResponse>, response: Response<ProfileSaveResponse>) {
-                if (isAdded) {
-                    if (response.isSuccessful) {
-                        // Get the image URL from response
-                        val imageUrl = response.body()?.image_url
+                val responseCode = response.code()
+                Log.d("API_DEBUG", "Response code: $responseCode")
+
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    Log.d("API_DEBUG", "Response successful: ${responseBody?.message}")
+
+                    if (responseBody?.success == true) {
+                        // Important: Immediately load the newly uploaded image
+                        loadProfileImage(responseBody.image_url)
 
                         // Save to SharedPreferences
-                        saveToSharedPreferences(ownerName, petName, breed, age, imageUrl)
-
-                        // Update the image view with the new URL
-                        if (!imageUrl.isNullOrEmpty()) {
-                            Glide.with(requireContext())
-                                .load(imageUrl)
-                                .placeholder(R.drawable.placeholder)
-                                .into(imgProfile)
-                        }
+                        saveToSharedPreferences(ownerName, petName, breed, age, responseBody.image_url)
 
                         Toast.makeText(requireContext(), "Profile updated successfully", Toast.LENGTH_SHORT).show()
-
-                        // Wait a moment before navigating back
-                        Handler(Looper.getMainLooper()).postDelayed({
-                            if (isAdded) {
-                                requireActivity().supportFragmentManager.popBackStack()
-                            }
-                        }, 500) // Half-second delay to show the updated image
+                        requireActivity().supportFragmentManager.popBackStack()
                     } else {
-                        // Your existing error handling
+                        val errorMsg = responseBody?.message ?: "Unknown error"
+                        Log.e("API Error", errorMsg)
+                        Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT).show()
                     }
+                } else {
+                    val errorBody = response.errorBody()?.string()
+                    Log.e("API Error", "Response not successful: $errorBody")
+                    Toast.makeText(requireContext(), "Failed to save profile: Response code $responseCode", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<ProfileSaveResponse>, t: Throwable) {
-                if (isAdded) { // Check if the fragment is still added to its activity
-                    Log.e("API Error", "Request failed: ${t.message}")
-                    Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-                }
+                Log.e("API Error", "Request failed: ${t.message}")
+                t.printStackTrace() // Print full stack trace
+                Toast.makeText(requireContext(), "Network Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
 
     private fun loadProfileData() {
-        // Retrieve profile data from SharedPreferences
-        val ownerName = sharedPref.getString("owner_name", "N/A") ?: "N/A"
-        val petName = sharedPref.getString("pet_name", "N/A") ?: "N/A"
-        val breed = sharedPref.getString("breed", "N/A") ?: "N/A"
+        // First try to load from SharedPreferences
+        populateFieldsFromSharedPref()
+
+        // Then try to load from API
+        if (userId > 0) {
+            val call = apiService.getProfile(userId)
+            call.enqueue(object : Callback<ProfileResponse> {
+                override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
+                    if (response.isSuccessful && response.body()?.status == "success") {
+                        val profile = response.body()?.profile
+                        if (profile != null) {
+                            // Update UI with profile data
+                            etOwner.setText(profile.owner_name)
+                            etPetName.setText(profile.pet_name)
+                            etBreed.setText(profile.breed)
+                            etAge.setText(profile.age.toString())
+
+                            // Prefer image_url if available, fallback to profile_image
+                            val imageToLoad = profile.image_url ?: profile.profile_image
+
+                            // Load profile image with error handling
+                            loadProfileImage(imageToLoad)
+
+                            // Save to SharedPreferences for next time
+                            saveToSharedPreferences(
+                                profile.owner_name,
+                                profile.pet_name,
+                                profile.breed,
+                                profile.age.toString(),
+                                imageToLoad
+                            )
+                        }
+                    } else {
+                        Log.w("API Warning", "Failed to load profile from API: ${response.message()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                    Log.e("API Error", "Failed to load profile: ${t.message}")
+                }
+            })
+        }
+    }
+
+    private fun loadProfileImage(imageUrl: String?) {
+        imageUrl?.let { url ->
+            Glide.with(this)
+                .load(url)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error)
+                .fallback(R.drawable.placeholder)
+                .into(object : CustomTarget<Drawable>() {
+                    override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
+                        imgProfile.setImageDrawable(resource)
+                        Log.d("Image Loading", "Image loaded successfully: $url")
+                    }
+
+                    override fun onLoadCleared(placeholder: Drawable?) {
+                        // This is called when the image loading is cancelled or cleared
+                        imgProfile.setImageDrawable(placeholder)
+                    }
+
+                    override fun onLoadFailed(errorDrawable: Drawable?) {
+                        Log.e("Image Loading", "Failed to load image: $url")
+                        imgProfile.setImageDrawable(errorDrawable ?: resources.getDrawable(R.drawable.error, null))
+                    }
+                })
+        } ?: run {
+            // If no image URL is provided, set to placeholder
+            imgProfile.setImageResource(R.drawable.placeholder)
+        }
+    }
+
+    private fun populateFieldsFromSharedPref() {
+        // Load data from SharedPreferences
+        val ownerName = sharedPref.getString("owner_name", "") ?: ""
+        val petName = sharedPref.getString("pet_name", "") ?: ""
+        val breed = sharedPref.getString("breed", "") ?: ""
         val age = sharedPref.getInt("age", 0)
         val imageUrl = sharedPref.getString("image_url", "") ?: ""
 
-        // Populate EditText fields with profile data
-        etOwner.setText(ownerName)
-        etPetName.setText(petName)
-        etBreed.setText(breed)
-        etAge.setText(if (age > 0) age.toString() else "N/A") // Display "N/A" if age is 0
+        // Only populate if we have data
+        if (ownerName.isNotEmpty()) etOwner.setText(ownerName)
+        if (petName.isNotEmpty()) etPetName.setText(petName)
+        if (breed.isNotEmpty()) etBreed.setText(breed)
+        if (age > 0) etAge.setText(age.toString())
 
-        // Load profile image using Glide
-        if (!imageUrl.isNullOrEmpty()) {
-            val imageSource = if (imageUrl.startsWith("http")) {
-                imageUrl // Use as-is if it's a URL
-            } else {
-                File(imageUrl) // Use as file if it's a local path
-            }
-
-            Glide.with(this)
-                .load(imageSource)
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.error)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        Log.e("ImageLoading", "Failed to load image: $imageUrl", e)
-                        return false
-                    }
-
-                    override fun onResourceReady(resource: Drawable?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        Log.d("ImageLoading", "Successfully loaded image: $imageUrl")
-                        return false
-                    }
-                })
-                .into(imgProfile)
-        } else {
-            imgProfile.setImageResource(R.drawable.placeholder)
-        }
+        // Load profile image with improved method
+        loadProfileImage(imageUrl)
     }
 
     private fun saveToSharedPreferences(ownerName: String, petName: String, breed: String, age: String, imageUrl: String?) {

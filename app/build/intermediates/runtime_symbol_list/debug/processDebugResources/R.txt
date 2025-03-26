@@ -3308,6 +3308,7 @@ int id clockwise 0x7f09008e
 int id closest 0x7f09008f
 int id collapseActionView 0x7f090090
 int id compress 0x7f090091
+int id confirmPasswordEditText 0x7f090246
 int id confirmPasswordHint 0x7f090092
 int id confirmPasswordTxt 0x7f090093
 int id confirm_button 0x7f090094
@@ -3362,6 +3363,7 @@ int id edge 0x7f0900c4
 int id edit_query 0x7f0900c5
 int id edit_text_id 0x7f0900c6
 int id elastic 0x7f0900c7
+int id emailEditText 0x7f090247
 int id emailHint 0x7f0900c8
 int id emailTextView 0x7f0900c9
 int id emailTxt 0x7f0900ca
@@ -3427,6 +3429,7 @@ int id imageView 0x7f090105
 int id imageView2 0x7f090106
 int id imageView3 0x7f090107
 int id imageView4 0x7f090108
+int id imgAppointmentService 0x7f090249
 int id imgCheckmark 0x7f090109
 int id imgProfile 0x7f09010a
 int id immediateStop 0x7f09010b
@@ -3525,6 +3528,7 @@ int id navigation_header_container 0x7f090167
 int id never 0x7f090168
 int id neverCompleteToEnd 0x7f090169
 int id neverCompleteToStart 0x7f09016a
+int id newPasswordEditText 0x7f090248
 int id noScroll 0x7f09016b
 int id noState 0x7f09016c
 int id none 0x7f09016d
@@ -3570,11 +3574,13 @@ int id pin 0x7f090194
 int id position 0x7f090195
 int id postLayout 0x7f090196
 int id pressed 0x7f090197
+int id progressBarAppointments 0x7f09024a
 int id progress_circular 0x7f090198
 int id progress_horizontal 0x7f090199
 int id radio 0x7f09019a
 int id ratio 0x7f09019b
 int id rectangles 0x7f09019c
+int id recyclerViewAppointments 0x7f09024b
 int id report_drawn 0x7f09019d
 int id reverseSawtooth 0x7f09019e
 int id right 0x7f09019f
@@ -3673,9 +3679,7 @@ int id textSpacerNoTitle 0x7f0901fb
 int id textStart 0x7f0901fc
 int id textTop 0x7f0901fd
 int id textView 0x7f0901fe
-int id textView1 0x7f0901ff
 int id textView2 0x7f090200
-int id textView3 0x7f090201
 int id text_input_end_icon 0x7f090202
 int id text_input_error_icon 0x7f090203
 int id text_input_start_icon 0x7f090204
@@ -3711,6 +3715,8 @@ int id triangle 0x7f090221
 int id tvAge 0x7f090222
 int id tvAppointmentDate 0x7f090223
 int id tvAppointmentDetails 0x7f090224
+int id tvAppointmentError 0x7f09024c
+int id tvAppointmentService 0x7f09024d
 int id tvBreed 0x7f090225
 int id tvConfirmationMessage 0x7f090226
 int id tvOwnerName 0x7f090227

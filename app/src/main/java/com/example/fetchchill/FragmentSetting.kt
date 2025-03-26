@@ -1,9 +1,8 @@
 package com.example.fetchchill
 
-import android.app.Activity
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +15,9 @@ import com.bumptech.glide.Glide
 import com.example.fetchchill.view.MainActivity
 import com.example.fetchchill.view.MainPage
 import com.example.fetchchill.view.fragments.FragmentEditProfile
+import com.example.fetchchill.utils.AuthManager
 import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaType
+import org.json.JSONObject
 import java.io.IOException
 
 class FragmentSetting : Fragment() {
@@ -33,12 +33,14 @@ class FragmentSetting : Fragment() {
     private lateinit var tvPetName: TextView
     private lateinit var tvBreed: TextView
     private lateinit var tvAge: TextView
-    private lateinit var sharedPref: SharedPreferences
 
+    private lateinit var authManager: AuthManager
     private val client = OkHttpClient()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_setting, container, false)
 
@@ -54,13 +56,13 @@ class FragmentSetting : Fragment() {
         tvBreed = view.findViewById(R.id.tvBreed)
         tvAge = view.findViewById(R.id.tvAge)
 
-        // Initialize SharedPreferences
-        sharedPref = requireActivity().getSharedPreferences("User  Profile", Activity.MODE_PRIVATE)
+        // Initialize AuthManager using the companion object
+        authManager = AuthManager(requireContext().getSharedPreferences("MyAppPrefs", android.content.Context.MODE_PRIVATE))
 
-        // Load and display profile data
-        loadProfileData()
+        // Fetch and display profile data
+        fetchProfileData()
 
-        // Set click listeners for frames
+        // Set click listeners
         editFrame.setOnClickListener { replaceFragment(FragmentEditProfile()) }
         accInfoFrame.setOnClickListener { replaceFragment(FragmentAccountInformation()) }
         faqFrame.setOnClickListener { replaceFragment(FragmentFaq()) }
@@ -72,81 +74,129 @@ class FragmentSetting : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        loadProfileData() // Reload profile data when returning to the settings screen
-        (activity as? MainPage)?.disableFrames() // Disable frames when this fragment is visible
+        fetchProfileData() // Refresh data when returning to this fragment
+        (activity as? MainPage)?.disableFrames()
     }
 
     override fun onPause() {
         super.onPause()
-        (activity as? MainPage)?.enableFrames() // Re-enable frames when navigating away from this fragment
+        (activity as? MainPage)?.enableFrames()
     }
 
-    private fun loadProfileData() {
-        val ownerName = sharedPref.getString("owner_name", "N/A") ?: "N/A"
-        val petName = sharedPref.getString("pet_name", "N/A") ?: "N/A"
-        val breed = sharedPref.getString("breed", "N/A") ?: "N/A"
-        val age = sharedPref.getInt("age", 0)
-        val imageUrl = sharedPref.getString("image_url", "") ?: ""
+    private fun fetchProfileData() {
+        val userId = AuthManager.getUserId() // Use the static method from companion object
+        Log.d("FragmentSetting", "Retrieved user ID: $userId")
 
-        // Update TextViews with profile data
-        tvOwnerName.text = ownerName
-        tvPetName.text = petName
-        tvBreed.text = breed
-        tvAge.text = if (age > 0) age.toString() else "N/A"
-
-        // Load profile image using Glide
-        if (imageUrl.isNotEmpty()) {
-            Glide.with(this)
-                .load(imageUrl)
-                .placeholder(R.drawable.placeholder) // Placeholder while loading
-                .error(R.drawable.error) // Error image if loading fails
-                .into(imgProfile)
-        } else {
-            imgProfile.setImageResource(R.drawable.placeholder) // Set a placeholder if no image URL
+        if (userId == -1) {
+            Log.e("FragmentSetting", "Invalid user ID, redirecting to login")
+            navigateToLogin()
+            return
         }
-    }
 
-    private fun logout() {
-        // Create the logout request
+        val url = "http://192.168.100.18/fetch_chill/getProfile.php?id=$userId"
+        Log.d("FragmentSetting", "Fetching profile from: $url")
+
         val request = Request.Builder()
-            .url("http://192.168.100.18/fetch_chill/logout.php") // Replace with your actual logout URL
-            .post(RequestBody.create("application/json".toMediaType(), "{}")) // Sending an empty JSON body
+            .url(url)
             .build()
 
-        // Execute the request
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 activity?.runOnUiThread {
-                    Toast.makeText(requireContext(), "Logout failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Log.e("FragmentSetting", "Network error", e)
+                    Toast.makeText(requireContext(), "Network error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onResponse(call: Call, response: Response) {
-                activity?.runOnUiThread {
-                    if (response.isSuccessful) {
-                        // Clear SharedPreferences
-                        sharedPref.edit().clear().apply()
+                response.use {
+                    if (!response.isSuccessful) {
+                        activity?.runOnUiThread {
+                            Toast.makeText(requireContext(), "Server error: ${response.code}", Toast.LENGTH_SHORT).show()
+                        }
+                        return
+                    }
 
-                        // Show logout success message
-                        Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show()
+                    try {
+                        val responseBody = response.body?.string()
+                        Log.d("FragmentSetting", "API Response: $responseBody")
 
-                        // Navigate to MainActivity and clear the activity stack
-                        val intent = Intent(requireContext(), MainActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        startActivity(intent)
-                        requireActivity().finish() // Finish the current activity
-                    } else {
-                        Toast.makeText(requireContext(), "Logout failed: ${response.message}", Toast.LENGTH_SHORT).show()
+                        val json = JSONObject(responseBody!!)
+                        if (json.getBoolean("success")) {
+                            val profile = json.getJSONObject("profile")
+                            activity?.runOnUiThread {
+                                updateProfileUI(
+                                    ownerName = profile.getString("owner_name"),
+                                    petName = profile.getString("pet_name"),
+                                    breed = profile.getString("breed"),
+                                    age = profile.getInt("age"),
+                                    imageUrl = profile.optString("profile_image", "")
+                                )
+                            }
+                        } else {
+                            val errorMsg = json.getString("message")
+                            activity?.runOnUiThread {
+                                Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } catch (e: Exception) {
+                        Log.e("FragmentSetting", "JSON parsing error", e)
+                        activity?.runOnUiThread {
+                            Toast.makeText(requireContext(), "Data parsing error", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }
         })
     }
 
+    private fun updateProfileUI(ownerName: String, petName: String, breed: String, age: Int, imageUrl: String) {
+        tvOwnerName.text = ownerName
+        tvPetName.text = petName
+        tvBreed.text = breed
+        tvAge.text = age.toString()
+
+        if (imageUrl.isNotEmpty()) {
+            Glide.with(this)
+                .load(imageUrl)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error)
+                .into(imgProfile)
+        } else {
+            imgProfile.setImageResource(R.drawable.placeholder)
+        }
+    }
+
+    private fun logout() {
+        // Use networkLogout to ensure server-side logout
+        authManager.networkLogout(
+            onSuccess = {
+                // Navigate to login screen on successful logout
+                Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show()
+                navigateToLogin()
+            },
+            onError = { errorMessage ->
+                // Optionally handle logout error
+                Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+
+                // Even if network logout fails, still clear local auth state
+                authManager.logout()
+                navigateToLogin()
+            }
+        )
+    }
+
+    private fun navigateToLogin() {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        requireActivity().finish()
+    }
+
     private fun replaceFragment(fragment: Fragment) {
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.fragment_container, fragment)
-            ?.addToBackStack(null)
-            ?.commit()
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

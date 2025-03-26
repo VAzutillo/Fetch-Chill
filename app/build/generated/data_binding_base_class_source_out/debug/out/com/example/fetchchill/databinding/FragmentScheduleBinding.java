@@ -5,19 +5,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.fetchchill.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentScheduleBinding implements ViewBinding {
   @NonNull
   private final LinearLayout rootView;
 
-  private FragmentScheduleBinding(@NonNull LinearLayout rootView) {
+  @NonNull
+  public final ProgressBar progressBarAppointments;
+
+  @NonNull
+  public final RecyclerView recyclerViewAppointments;
+
+  @NonNull
+  public final TextView tvAppointmentError;
+
+  private FragmentScheduleBinding(@NonNull LinearLayout rootView,
+      @NonNull ProgressBar progressBarAppointments, @NonNull RecyclerView recyclerViewAppointments,
+      @NonNull TextView tvAppointmentError) {
     this.rootView = rootView;
+    this.progressBarAppointments = progressBarAppointments;
+    this.recyclerViewAppointments = recyclerViewAppointments;
+    this.tvAppointmentError = tvAppointmentError;
   }
 
   @Override
@@ -43,10 +62,32 @@ public final class FragmentScheduleBinding implements ViewBinding {
 
   @NonNull
   public static FragmentScheduleBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.progressBarAppointments;
+      ProgressBar progressBarAppointments = ViewBindings.findChildViewById(rootView, id);
+      if (progressBarAppointments == null) {
+        break missingId;
+      }
 
-    return new FragmentScheduleBinding((LinearLayout) rootView);
+      id = R.id.recyclerViewAppointments;
+      RecyclerView recyclerViewAppointments = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerViewAppointments == null) {
+        break missingId;
+      }
+
+      id = R.id.tvAppointmentError;
+      TextView tvAppointmentError = ViewBindings.findChildViewById(rootView, id);
+      if (tvAppointmentError == null) {
+        break missingId;
+      }
+
+      return new FragmentScheduleBinding((LinearLayout) rootView, progressBarAppointments,
+          recyclerViewAppointments, tvAppointmentError);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

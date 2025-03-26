@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".FragmentSchedule">
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,13 +18,30 @@
         android:layout_marginTop="40dp"
         android:layout_marginStart="75dp"/>
 
+    <ProgressBar
+        android:id="@+id/progressBarAppointments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tvAppointmentError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textColor="@android:color/darker_gray"
+        android:visibility="gone"
+        tools:text="No appointments found"
+        tools:visibility="visible"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAppointments"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="50dp"/>
-
-
-
 
 </LinearLayout>

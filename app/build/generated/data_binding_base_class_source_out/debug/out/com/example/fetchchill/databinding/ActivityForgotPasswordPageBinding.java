@@ -29,16 +29,16 @@ public final class ActivityForgotPasswordPageBinding implements ViewBinding {
   public final ImageView backToLoginPage;
 
   @NonNull
-  public final TextInputEditText confirmPasswordTxt;
+  public final TextInputEditText confirmPasswordEditText;
 
   @NonNull
-  public final TextInputEditText emailTxt;
+  public final TextInputEditText emailEditText;
 
   @NonNull
   public final ConstraintLayout main;
 
   @NonNull
-  public final TextInputEditText passwordTxt;
+  public final TextInputEditText newPasswordEditText;
 
   @NonNull
   public final TextInputLayout textInputLayout2;
@@ -48,16 +48,16 @@ public final class ActivityForgotPasswordPageBinding implements ViewBinding {
 
   private ActivityForgotPasswordPageBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton Forgotpassbtn, @NonNull ImageView backToLoginPage,
-      @NonNull TextInputEditText confirmPasswordTxt, @NonNull TextInputEditText emailTxt,
-      @NonNull ConstraintLayout main, @NonNull TextInputEditText passwordTxt,
+      @NonNull TextInputEditText confirmPasswordEditText, @NonNull TextInputEditText emailEditText,
+      @NonNull ConstraintLayout main, @NonNull TextInputEditText newPasswordEditText,
       @NonNull TextInputLayout textInputLayout2, @NonNull TextInputLayout textInputLayout8) {
     this.rootView = rootView;
     this.Forgotpassbtn = Forgotpassbtn;
     this.backToLoginPage = backToLoginPage;
-    this.confirmPasswordTxt = confirmPasswordTxt;
-    this.emailTxt = emailTxt;
+    this.confirmPasswordEditText = confirmPasswordEditText;
+    this.emailEditText = emailEditText;
     this.main = main;
-    this.passwordTxt = passwordTxt;
+    this.newPasswordEditText = newPasswordEditText;
     this.textInputLayout2 = textInputLayout2;
     this.textInputLayout8 = textInputLayout8;
   }
@@ -101,23 +101,23 @@ public final class ActivityForgotPasswordPageBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.confirmPasswordTxt;
-      TextInputEditText confirmPasswordTxt = ViewBindings.findChildViewById(rootView, id);
-      if (confirmPasswordTxt == null) {
+      id = R.id.confirmPasswordEditText;
+      TextInputEditText confirmPasswordEditText = ViewBindings.findChildViewById(rootView, id);
+      if (confirmPasswordEditText == null) {
         break missingId;
       }
 
-      id = R.id.emailTxt;
-      TextInputEditText emailTxt = ViewBindings.findChildViewById(rootView, id);
-      if (emailTxt == null) {
+      id = R.id.emailEditText;
+      TextInputEditText emailEditText = ViewBindings.findChildViewById(rootView, id);
+      if (emailEditText == null) {
         break missingId;
       }
 
       ConstraintLayout main = (ConstraintLayout) rootView;
 
-      id = R.id.passwordTxt;
-      TextInputEditText passwordTxt = ViewBindings.findChildViewById(rootView, id);
-      if (passwordTxt == null) {
+      id = R.id.newPasswordEditText;
+      TextInputEditText newPasswordEditText = ViewBindings.findChildViewById(rootView, id);
+      if (newPasswordEditText == null) {
         break missingId;
       }
 
@@ -134,8 +134,8 @@ public final class ActivityForgotPasswordPageBinding implements ViewBinding {
       }
 
       return new ActivityForgotPasswordPageBinding((ConstraintLayout) rootView, Forgotpassbtn,
-          backToLoginPage, confirmPasswordTxt, emailTxt, main, passwordTxt, textInputLayout2,
-          textInputLayout8);
+          backToLoginPage, confirmPasswordEditText, emailEditText, main, newPasswordEditText,
+          textInputLayout2, textInputLayout8);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

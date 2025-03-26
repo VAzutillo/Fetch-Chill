@@ -3309,6 +3309,7 @@ id clockwise
 id closest
 id collapseActionView
 id compress
+id confirmPasswordEditText
 id confirmPasswordHint
 id confirmPasswordTxt
 id confirm_button
@@ -3363,6 +3364,7 @@ id edge
 id edit_query
 id edit_text_id
 id elastic
+id emailEditText
 id emailHint
 id emailTextView
 id emailTxt
@@ -3428,6 +3430,7 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
+id imgAppointmentService
 id imgCheckmark
 id imgProfile
 id immediateStop
@@ -3526,6 +3529,7 @@ id navigation_header_container
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id newPasswordEditText
 id noScroll
 id noState
 id none
@@ -3571,11 +3575,13 @@ id pin
 id position
 id postLayout
 id pressed
+id progressBarAppointments
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerViewAppointments
 id report_drawn
 id reverseSawtooth
 id right
@@ -3674,9 +3680,7 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
-id textView1
 id textView2
-id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3712,6 +3716,8 @@ id triangle
 id tvAge
 id tvAppointmentDate
 id tvAppointmentDetails
+id tvAppointmentError
+id tvAppointmentService
 id tvBreed
 id tvConfirmationMessage
 id tvOwnerName

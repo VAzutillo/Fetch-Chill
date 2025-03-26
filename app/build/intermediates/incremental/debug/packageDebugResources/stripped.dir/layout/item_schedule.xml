@@ -24,7 +24,7 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/tvAppointmentDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lexenddeca_regular"
@@ -35,7 +35,7 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tvAppointmentDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lexenddeca_regular"
@@ -54,11 +54,13 @@
             android:translationZ="4dp">
 
             <ImageView
+                android:id="@+id/imgAppointmentService"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/vaccineimg"/>
 
             <TextView
+                android:id="@+id/tvAppointmentService"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexenddeca_regular"
