@@ -24,27 +24,35 @@ public final class ItemScheduleBinding implements ViewBinding {
   public final ImageView imgAppointmentService;
 
   @NonNull
-  public final TextView textView2;
-
-  @NonNull
-  public final TextView tvAppointmentDate;
-
-  @NonNull
-  public final TextView tvAppointmentDetails;
+  public final LinearLayout recyclerViewAppointments;
 
   @NonNull
   public final TextView tvAppointmentService;
 
+  @NonNull
+  public final TextView tvAppointmentStatus;
+
+  @NonNull
+  public final TextView tvDate;
+
+  @NonNull
+  public final TextView tvDay;
+
+  @NonNull
+  public final TextView tvTime;
+
   private ItemScheduleBinding(@NonNull LinearLayout rootView,
-      @NonNull ImageView imgAppointmentService, @NonNull TextView textView2,
-      @NonNull TextView tvAppointmentDate, @NonNull TextView tvAppointmentDetails,
-      @NonNull TextView tvAppointmentService) {
+      @NonNull ImageView imgAppointmentService, @NonNull LinearLayout recyclerViewAppointments,
+      @NonNull TextView tvAppointmentService, @NonNull TextView tvAppointmentStatus,
+      @NonNull TextView tvDate, @NonNull TextView tvDay, @NonNull TextView tvTime) {
     this.rootView = rootView;
     this.imgAppointmentService = imgAppointmentService;
-    this.textView2 = textView2;
-    this.tvAppointmentDate = tvAppointmentDate;
-    this.tvAppointmentDetails = tvAppointmentDetails;
+    this.recyclerViewAppointments = recyclerViewAppointments;
     this.tvAppointmentService = tvAppointmentService;
+    this.tvAppointmentStatus = tvAppointmentStatus;
+    this.tvDate = tvDate;
+    this.tvDay = tvDay;
+    this.tvTime = tvTime;
   }
 
   @Override
@@ -80,23 +88,7 @@ public final class ItemScheduleBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView2;
-      TextView textView2 = ViewBindings.findChildViewById(rootView, id);
-      if (textView2 == null) {
-        break missingId;
-      }
-
-      id = R.id.tvAppointmentDate;
-      TextView tvAppointmentDate = ViewBindings.findChildViewById(rootView, id);
-      if (tvAppointmentDate == null) {
-        break missingId;
-      }
-
-      id = R.id.tvAppointmentDetails;
-      TextView tvAppointmentDetails = ViewBindings.findChildViewById(rootView, id);
-      if (tvAppointmentDetails == null) {
-        break missingId;
-      }
+      LinearLayout recyclerViewAppointments = (LinearLayout) rootView;
 
       id = R.id.tvAppointmentService;
       TextView tvAppointmentService = ViewBindings.findChildViewById(rootView, id);
@@ -104,8 +96,33 @@ public final class ItemScheduleBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemScheduleBinding((LinearLayout) rootView, imgAppointmentService, textView2,
-          tvAppointmentDate, tvAppointmentDetails, tvAppointmentService);
+      id = R.id.tvAppointmentStatus;
+      TextView tvAppointmentStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvAppointmentStatus == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDate;
+      TextView tvDate = ViewBindings.findChildViewById(rootView, id);
+      if (tvDate == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDay;
+      TextView tvDay = ViewBindings.findChildViewById(rootView, id);
+      if (tvDay == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTime;
+      TextView tvTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvTime == null) {
+        break missingId;
+      }
+
+      return new ItemScheduleBinding((LinearLayout) rootView, imgAppointmentService,
+          recyclerViewAppointments, tvAppointmentService, tvAppointmentStatus, tvDate, tvDay,
+          tvTime);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

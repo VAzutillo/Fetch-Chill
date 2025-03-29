@@ -1,11 +1,16 @@
 R_DEF: Internal format may change without notice
 local
 color bg_color
+color bg_color1
 color black
 color blue
 color btn
 color buttons
+color gray
+color green
 color grey
+color orange
+color red
 color secondary
 color tertiary
 color tertiary1
@@ -19,6 +24,8 @@ drawable arrow_back
 drawable arrow_forward
 drawable back_button
 drawable baseline_arrow_back_24
+drawable cancel_button
+drawable cancel_schedule
 drawable chechup
 drawable checkmark_icon
 drawable checkupimg
@@ -129,12 +136,15 @@ id trainingFrame
 id tvAge
 id tvAppointmentDate
 id tvAppointmentDetails
-id tvAppointmentError
 id tvAppointmentService
+id tvAppointmentStatus
 id tvBreed
 id tvConfirmationMessage
+id tvDate
+id tvDay
 id tvOwnerName
 id tvPetName
+id tvTime
 id tvTitle
 id txtChangePhoto
 id usernameHint
@@ -157,6 +167,7 @@ layout fragment_schedule
 layout fragment_setting
 layout fragment_training
 layout fragment_vaccine
+layout item_empty_schedule
 layout item_schedule
 mipmap ic_launcher
 mipmap ic_launcher_round

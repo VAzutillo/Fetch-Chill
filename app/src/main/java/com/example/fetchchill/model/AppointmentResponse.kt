@@ -8,7 +8,9 @@ data class Appointment(
     val service_type: String,
     val appointment_date: String,
     val appointment_time: String,
-    val status: String
+    val status: String,
+    val day: String,
+    val service: String
 )
 
 data class AppointmentRequest(

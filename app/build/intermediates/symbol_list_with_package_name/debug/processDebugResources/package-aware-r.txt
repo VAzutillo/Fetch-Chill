@@ -1375,6 +1375,7 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color bg_color
+color bg_color1
 color black
 color blue
 color bright_foreground_disabled_material_dark
@@ -1439,6 +1440,8 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color gray
+color green
 color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
@@ -2098,6 +2101,7 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color orange
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -2106,6 +2110,7 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
+color red
 color ripple_material_dark
 color ripple_material_light
 color secondary
@@ -3025,6 +3030,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable cancel_button
+drawable cancel_schedule
 drawable chechup
 drawable checkmark_icon
 drawable checkupimg
@@ -3716,12 +3723,15 @@ id triangle
 id tvAge
 id tvAppointmentDate
 id tvAppointmentDetails
-id tvAppointmentError
 id tvAppointmentService
+id tvAppointmentStatus
 id tvBreed
 id tvConfirmationMessage
+id tvDate
+id tvDay
 id tvOwnerName
 id tvPetName
+id tvTime
 id tvTitle
 id txtChangePhoto
 id unchecked
@@ -3900,6 +3910,7 @@ layout fragment_training
 layout fragment_vaccine
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_empty_schedule
 layout item_schedule
 layout m3_alert_dialog
 layout m3_alert_dialog_actions

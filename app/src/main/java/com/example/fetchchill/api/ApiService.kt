@@ -2,14 +2,22 @@ package com.example.fetchchill.api
 
 import ProfileResponse
 import ProfileSaveResponse
+import android.content.Context
 import com.example.fetchchill.model.*
 import okhttp3.MultipartBody
+import okhttp3.OkHttpClient
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 interface ApiService {
+
+    // Get Appointments for a Specific User API
+    @GET("get_appointments.php") // Ensure this endpoint is correct
+    fun getAppointmentsForUser (@Query("user_id") userId: Int): Call<List<Appointment>>
 
     // Sign-up API
     @POST("signup.php")
@@ -44,6 +52,16 @@ interface ApiService {
         @Part("age") age: RequestBody,
         @Part image_profile: MultipartBody.Part?
     ): Call<ProfileSaveResponse>
+    companion object {
+        fun create(): ApiService {
+            return Retrofit.Builder()
+                .baseUrl("http://192.168.100.18/fetch_chill/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(OkHttpClient.Builder().build())
+                .build()
+                .create(ApiService::class.java)
+        }
+    }
 
     // Get Profile API
     @GET("getProfile.php") // Ensure this endpoint is correct

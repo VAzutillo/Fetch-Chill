@@ -1,19 +1,19 @@
 [
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_splash_dog.jpg.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\splash_dog.jpg"
-    },
-    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-hdpi_placeholder_round.webp.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-hdpi\\placeholder_round.webp"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_splash_dog.jpg.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\splash_dog.jpg"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_schedule.png.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\schedule.png"
+    },
+    {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-hdpi_placeholder_round.webp.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-hdpi\\placeholder_round.webp"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-xhdpi_placeholder_round.webp.flat",
@@ -56,16 +56,16 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\setting_fill.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_activity_main_page.xml.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_main_page.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_fragment_about_us.xml.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_about_us.xml"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_activity_splash_screen.xml.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_splash_screen.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_fragment_about_us.xml.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_about_us.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_activity_main_page.xml.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_main_page.xml"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_checkupimg.png.flat",
@@ -116,12 +116,12 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-xhdpi\\placeholder.webp"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_setting_corner_radius.xml.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\setting_corner_radius.xml"
+    },
+    {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_main.xml"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-xxxhdpi_placeholder_round.webp.flat",
@@ -142,6 +142,10 @@
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_cancel_schedule.xml.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\cancel_schedule.xml"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_service.png.flat",
@@ -192,12 +196,12 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_vaccine.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_logout.png.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\logout.png"
-    },
-    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_fragment_edit_profile.xml.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_edit_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_logout.png.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\logout.png"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-xhdpi_ic_launcher.webp.flat",
@@ -212,12 +216,12 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-xxxhdpi_placeholder.webp.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-xxxhdpi\\placeholder.webp"
-    },
-    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_activity_sign_up_page.xml.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_sign_up_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-xxxhdpi_placeholder.webp.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-xxxhdpi\\placeholder.webp"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_item_schedule.xml.flat",
@@ -236,12 +240,12 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_forgot_password_page.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-xxhdpi_placeholder_round.webp.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-xxhdpi\\placeholder_round.webp"
-    },
-    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_fragment_training.xml.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_training.xml"
+    },
+    {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-xxhdpi_placeholder_round.webp.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-xxhdpi\\placeholder_round.webp"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_login_img.jpg.flat",
@@ -280,6 +284,10 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\account_information.png"
     },
     {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_item_empty_schedule.xml.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\item_empty_schedule.xml"
+    },
+    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-hdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\mipmap-hdpi\\ic_launcher.webp"
     },
@@ -296,12 +304,16 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\arrow_forward.xml"
     },
     {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_time.xml.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\time.xml"
+    },
+    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_date.xml.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\date.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_time.xml.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\time.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_cancel_button.xml.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\cancel_button.xml"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-xxhdpi_ic_launcher.webp.flat",
@@ -312,12 +324,12 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\corner_2.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_fragment_account_information.xml.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_account_information.xml"
-    },
-    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_chechup.png.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\chechup.png"
+    },
+    {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_fragment_account_information.xml.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_account_information.xml"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\mipmap-mdpi_placeholder_round.webp.flat",
@@ -336,10 +348,6 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\arrow_back.xml"
     },
     {
-        "merged": "com.example.fetchchill.app-debug-38:/layout_fragment_schedule.xml.flat",
-        "source": "com.example.fetchchill.app-main-40:/layout/fragment_schedule.xml"
-    },
-    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_error.xml.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\error.xml"
     },
@@ -348,12 +356,12 @@
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\grooming.png"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_fragment_checkup.xml.flat",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_checkup.xml"
-    },
-    {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\drawable_back_button.xml.flat",
         "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\drawable\\back_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_fragment_checkup.xml.flat",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_checkup.xml"
     },
     {
         "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-debug-38:\\layout_fragment_confirmation_dialog.xml.flat",

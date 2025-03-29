@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.fetchchill.R
 import androidx.fragment.app.Fragment
+import com.example.fetchchill.FragmentSchedule
 //import com.example.fetchchill.FragmentSchedule
 import com.example.fetchchill.FragmentSetting
 import com.example.fetchchill.view.fragments.FragmentCheckup
@@ -74,7 +75,7 @@ class MainPage : AppCompatActivity() {
         vaccineFrame.setOnClickListener { replaceFragment(FragmentVaccine()) }
         trainingFrame.setOnClickListener { replaceFragment(FragmentTraining()) }
         nav_settings.setOnClickListener { replaceFragment(FragmentSetting()) }
-//        nav_schedule.setOnClickListener { replaceFragment(FragmentSchedule()) }
+        nav_schedule.setOnClickListener { replaceFragment(FragmentSchedule()) }
     }
 
     override fun onBackPressed() {

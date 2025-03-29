@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,16 +26,12 @@ public final class FragmentScheduleBinding implements ViewBinding {
   @NonNull
   public final RecyclerView recyclerViewAppointments;
 
-  @NonNull
-  public final TextView tvAppointmentError;
-
   private FragmentScheduleBinding(@NonNull LinearLayout rootView,
-      @NonNull ProgressBar progressBarAppointments, @NonNull RecyclerView recyclerViewAppointments,
-      @NonNull TextView tvAppointmentError) {
+      @NonNull ProgressBar progressBarAppointments,
+      @NonNull RecyclerView recyclerViewAppointments) {
     this.rootView = rootView;
     this.progressBarAppointments = progressBarAppointments;
     this.recyclerViewAppointments = recyclerViewAppointments;
-    this.tvAppointmentError = tvAppointmentError;
   }
 
   @Override
@@ -78,14 +73,8 @@ public final class FragmentScheduleBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvAppointmentError;
-      TextView tvAppointmentError = ViewBindings.findChildViewById(rootView, id);
-      if (tvAppointmentError == null) {
-        break missingId;
-      }
-
       return new FragmentScheduleBinding((LinearLayout) rootView, progressBarAppointments,
-          recyclerViewAppointments, tvAppointmentError);
+          recyclerViewAppointments);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

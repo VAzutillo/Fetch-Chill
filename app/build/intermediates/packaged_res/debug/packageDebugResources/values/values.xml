@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="bg_color">#C5DAEF</color>
+    <color name="bg_color1">#A8C3DF</color>
     <color name="black">#FF000000</color>
     <color name="blue">#3892DB</color>
     <color name="btn">#84B1EF</color>
     <color name="buttons">#7096D1</color>
+    <color name="gray">#4B4B4B</color>
+    <color name="green">#4CAF50</color>
     <color name="grey">#4B4B4B</color>
+    <color name="orange">#FF5722</color>
+    <color name="red">#FF0000</color>
     <color name="secondary">#E4EFE4</color>
     <color name="tertiary">#E5A641</color>
     <color name="tertiary1">#7096D1</color>

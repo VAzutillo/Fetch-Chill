@@ -15,9 +15,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.fetchchill.R
 import com.example.fetchchill.utils.AuthManager
 import com.example.fetchchill.view.fragments.ConfirmationDialogFragment
-import com.example.fetchchill.view.BaseAppointmentFragment
 import com.example.fetchchill.view.MainPage
 import java.util.*
+import com.example.fetchchill.view.BaseAppointmentFragment
+
 
 class FragmentVaccine : BaseAppointmentFragment() {
 

@@ -144,6 +144,7 @@ class FragmentSetting : Fragment() {
                         activity?.runOnUiThread {
                             Toast.makeText(requireContext(), "Data parsing error", Toast.LENGTH_SHORT).show()
                         }
+
                     }
                 }
             }

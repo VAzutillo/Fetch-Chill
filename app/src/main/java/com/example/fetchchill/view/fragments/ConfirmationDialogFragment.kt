@@ -55,6 +55,14 @@ class ConfirmationDialogFragment : DialogFragment() {
             onConfirmListener?.invoke() // Call the listener
             dismiss() // Close the dialog
         }
+        btnAppointments.setOnClickListener {
+            onConfirmListener?.invoke() // Call the listener
+            dismiss() // Close the dialog
+        }
+        imgCheckmark.setOnClickListener {
+            onConfirmListener?.invoke() // Call the listener
+            dismiss() // Close the dialog
+        }
 
         builder.setView(view)
         return builder.create()
