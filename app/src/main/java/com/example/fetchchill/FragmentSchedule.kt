@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fetchchill.adapter.RecyclerViewScheduleAdapter
 import com.example.fetchchill.databinding.FragmentScheduleBinding
@@ -15,6 +16,9 @@ import com.example.fetchchill.view.MainPage
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,11 +35,12 @@ class FragmentSchedule : Fragment() {
     private var _binding: FragmentScheduleBinding? = null
     private val binding get() = _binding!!
     private lateinit var scheduleAdapter: RecyclerViewScheduleAdapter
+    private var isAppointmentJustCreated = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            // Handle arguments if needed
+            isAppointmentJustCreated = it.getBoolean("appointment_created", false)
         }
     }
 
@@ -52,6 +57,11 @@ class FragmentSchedule : Fragment() {
 
         setupRecyclerView()
         loadAppointments()
+
+        // Show a message if coming from appointment creation
+//        if (isAppointmentJustCreated) {
+//            Toast.makeText(requireContext(), "Your appointment has been scheduled successfully!", Toast.LENGTH_LONG).show()
+//        }
     }
 
     private fun setupRecyclerView() {
@@ -64,35 +74,49 @@ class FragmentSchedule : Fragment() {
 
     private fun loadAppointments() {
         binding.progressBarAppointments.visibility = View.VISIBLE
-
-        // Get current user ID
         val userId = AuthManager.getUserId()
 
-        // Call the API to get appointments for the user
-        RetrofitClient.apiService.getAppointmentsForUser (userId).enqueue(object :
+        RetrofitClient.apiService.getAppointmentsForUser(userId).enqueue(object :
             Callback<List<Appointment>> {
             override fun onResponse(call: Call<List<Appointment>>, response: Response<List<Appointment>>) {
                 binding.progressBarAppointments.visibility = View.GONE
                 if (response.isSuccessful) {
                     val appointments = response.body() ?: emptyList()
-                    scheduleAdapter.updateAppointments(appointments)
+                    val sortedAppointments = sortAppointments(appointments) // Use the sorting function
+                    if (sortedAppointments.isEmpty()) {
+                        Toast.makeText(requireContext(), "You don't have any appointments yet", Toast.LENGTH_SHORT).show()
+                    }
+                    scheduleAdapter.updateAppointments(sortedAppointments)
                 } else {
-                    // Handle error response
-                    binding.progressBarAppointments.visibility = View.GONE
-                    // Show error message (e.g., Toast or Snackbar)
+                    Toast.makeText(requireContext(), "Failed to load appointments: ${response.message()}", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<List<Appointment>>, t: Throwable) {
                 binding.progressBarAppointments.visibility = View.GONE
-                // Handle failure (e.g., show a Toast message)
+                Toast.makeText(requireContext(), "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
+        })
+    }
+
+    // Add the sorting function here
+    private fun sortAppointments(appointments: List<Appointment>): List<Appointment> {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+
+        return appointments.sortedWith(compareByDescending<Appointment> {
+            dateFormat.parse(it.appointment_date ?: "") ?: Date(0)
+        }.thenByDescending {
+            timeFormat.parse(it.appointment_time ?: "00:00") ?: Date(0)
         })
     }
 
     override fun onResume() {
         super.onResume()
         (activity as? MainPage)?.disableFrames()
+
+        // Refresh appointments when returning to this fragment
+        loadAppointments()
     }
 
     override fun onPause() {
@@ -107,11 +131,10 @@ class FragmentSchedule : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(appointmentCreated: Boolean = false) =
             FragmentSchedule().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putBoolean("appointment_created", appointmentCreated)
                 }
             }
     }

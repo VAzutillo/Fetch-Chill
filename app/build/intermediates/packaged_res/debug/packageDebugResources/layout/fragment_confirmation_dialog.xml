@@ -62,7 +62,6 @@
         android:textColor="@color/black"
         android:textSize="13dp"
         android:layout_gravity="center_horizontal"
-        android:translationZ="4dp"
         app:cornerRadius="15dp"/>
 
 

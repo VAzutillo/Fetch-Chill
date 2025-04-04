@@ -117,8 +117,14 @@ class RecyclerViewScheduleAdapter(
                     val timeParts = timeString.split(":")
                     val hour = timeParts[0].toInt()
                     val minute = timeParts[1]
-                    val period = if (hour >= 12) "AM" else "PM"
-                    val displayHour = if (hour > 12) hour - 12 else if (hour == 0) 12 else hour
+
+                    // Correct AM/PM calculation
+                    val period = if (hour >= 12) "PM" else "AM"
+                    val displayHour = when {
+                        hour > 12 -> hour - 12
+                        hour == 0 -> 12  // Handle midnight (00:00)
+                        else -> hour
+                    }
                     "$displayHour:$minute $period"
                 } else {
                     timeString

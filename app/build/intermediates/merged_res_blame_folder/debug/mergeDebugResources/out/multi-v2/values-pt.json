@@ -4,7 +4,7 @@
             "outputFile": "com.example.fetchchill.app-mergeDebugResources-36:/values-pt/values-pt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\vince\\.gradle\\caches\\8.10.2\\transforms\\6f7ffce52d94f1f017168825927cf9ba\\transformed\\appcompat-1.7.0\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\vince\\.gradle\\caches\\8.11.1\\transforms\\7ffeacda849c3c9a662189336c39b3bd\\transformed\\appcompat-1.7.0\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\vince\\.gradle\\caches\\8.10.2\\transforms\\cbb0750d563c4ff0397b2dc39a911582\\transformed\\core-1.15.0\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\vince\\.gradle\\caches\\8.11.1\\transforms\\750b25ce72f7c7e22afa04ffca0ba77d\\transformed\\core-1.15.0\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

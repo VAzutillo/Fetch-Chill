@@ -2,12 +2,15 @@ package com.example.fetchchill.view.fragments
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.DialogFragment
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
+import com.example.fetchchill.FragmentSchedule
 import com.example.fetchchill.R
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,6 +22,7 @@ class ConfirmationDialogFragment : DialogFragment() {
     private var appointmentDate: Date? = null // Variable for the appointment date
 
     private var onConfirmListener: (() -> Unit)? = null // Listener for confirmation
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -55,18 +59,54 @@ class ConfirmationDialogFragment : DialogFragment() {
             onConfirmListener?.invoke() // Call the listener
             dismiss() // Close the dialog
         }
-        btnAppointments.setOnClickListener {
-            onConfirmListener?.invoke() // Call the listener
-            dismiss() // Close the dialog
-        }
+
         imgCheckmark.setOnClickListener {
             onConfirmListener?.invoke() // Call the listener
             dismiss() // Close the dialog
         }
 
+        // Set click listener for the Appointments button
+        btnAppointments.setOnClickListener {
+//            Log.d("navigate","working")
+            // First call the confirm listener to save the data
+            onConfirmListener?.invoke()
+
+            // Close the dialog (important to do this first) dismiss()
+//            navigateToSchedule()
+            // Short delay to ensure the appointment is saved before navigating
+            view.postDelayed({
+                Log.d("navigate","working")
+                // Navigate to FragmentSchedule
+                navigateToSchedule()
+                dismiss()
+            }, 300) // Small delay to ensure API call completes
+        }
+
         builder.setView(view)
         return builder.create()
     }
+
+    // Function to navigate to FragmentSchedule
+    private fun navigateToSchedule() {
+        Log.d("navigate","working")
+        // Create FragmentSchedule with flag indicating an appointment was just created
+        val fragmentSchedule = FragmentSchedule.newInstance(appointmentCreated = true)
+        val transaction = parentFragmentManager.beginTransaction()
+
+        // Add the transition animation if desired
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+
+        // Replace the current fragment with FragmentSchedule
+        // Use the main container ID from your app (commonly fragment_container or main_container)
+        transaction.replace(R.id.fragment_container, fragmentSchedule)
+
+        // Clear the back stack to prevent returning to the appointment creation screen
+        transaction.addToBackStack(null)
+
+        // Commit the transaction
+        transaction.commitAllowingStateLoss()
+    }
+
     fun setOnConfirmListener(listener: () -> Unit) {
         onConfirmListener = listener
     }

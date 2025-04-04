@@ -83,7 +83,7 @@ class FragmentEditProfile : Fragment() {
         // Initialize Retrofit
         val gson = GsonBuilder().setLenient().create()
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.100.18/fetch_chill/") // Base URL for your API
+            .baseUrl("http://192.168.82.54/fetch_chill/") // Base URL for your API
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 

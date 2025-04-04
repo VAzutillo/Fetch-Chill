@@ -23,6 +23,7 @@ class LoginPage : AppCompatActivity() {
     private lateinit var authManager: AuthManager
     private lateinit var progressDialog: ProgressDialog
     private lateinit var toForgotPassword: TextView
+    private lateinit var toSignUpPage: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +49,7 @@ class LoginPage : AppCompatActivity() {
         loginPasswordTxt = findViewById(R.id.loginPasswordTxt)
         loginBtn = findViewById(R.id.LoginBtn)
         toForgotPassword = findViewById(R.id.toForgotPassword)
+        toSignUpPage = findViewById(R.id.toSignupPage)
 
         // Initialize progress dialog
         progressDialog = ProgressDialog(this).apply {
@@ -66,6 +68,12 @@ class LoginPage : AppCompatActivity() {
             val intent = Intent(this, ForgotPasswordPage::class.java)
             startActivity(intent)
         }
+        toSignUpPage.setOnClickListener {
+            // Navigate to Sign Up Page
+            val intent = Intent(this, SignUpPage::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun login() {

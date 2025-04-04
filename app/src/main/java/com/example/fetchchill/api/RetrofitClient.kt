@@ -8,9 +8,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private const val BASE_URL = "http://192.168.100.18/fetch_chill/"
+    private const val BASE_URL = "http://192.168.82.54/fetch_chill/"
 //    192.168.35.54 gaea
 //    192.168.100.18 wifi
+//    192.168.82.54 mg
+//    192.168.20.5  akin
     // Create a logging interceptor to log request and response details
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY // Logs request & response body

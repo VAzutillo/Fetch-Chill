@@ -93,7 +93,7 @@ class FragmentSetting : Fragment() {
             return
         }
 
-        val url = "http://192.168.100.18/fetch_chill/getProfile.php?id=$userId"
+        val url = "http://192.168.82.54/fetch_chill/getProfile.php?id=$userId"
         Log.d("FragmentSetting", "Fetching profile from: $url")
 
         val request = Request.Builder()
@@ -124,13 +124,25 @@ class FragmentSetting : Fragment() {
                         val json = JSONObject(responseBody!!)
                         if (json.getBoolean("success")) {
                             val profile = json.getJSONObject("profile")
+
+                            // First try to get the full image URL
+                            var imageUrl = profile.optString("image_url", "")
+
+                            // If image_url is empty, construct it from profile_image
+                            if (imageUrl.isEmpty()) {
+                                val profileImage = profile.optString("profile_image", "")
+                                if (profileImage.isNotEmpty()) {
+                                    imageUrl = "http://192.168.82.54/fetch_chill/$profileImage"
+                                }
+                            }
+
                             activity?.runOnUiThread {
                                 updateProfileUI(
                                     ownerName = profile.getString("owner_name"),
                                     petName = profile.getString("pet_name"),
                                     breed = profile.getString("breed"),
                                     age = profile.getInt("age"),
-                                    imageUrl = profile.optString("profile_image", "")
+                                    imageUrl = imageUrl
                                 )
                             }
                         } else {
@@ -144,10 +156,10 @@ class FragmentSetting : Fragment() {
                         activity?.runOnUiThread {
                             Toast.makeText(requireContext(), "Data parsing error", Toast.LENGTH_SHORT).show()
                         }
-
                     }
                 }
             }
+
         })
     }
 
@@ -158,6 +170,9 @@ class FragmentSetting : Fragment() {
         tvAge.text = age.toString()
 
         if (imageUrl.isNotEmpty()) {
+            // Log the image URL to debug
+            Log.d("FragmentSetting", "Loading image from: $imageUrl")
+
             Glide.with(this)
                 .load(imageUrl)
                 .placeholder(R.drawable.placeholder)

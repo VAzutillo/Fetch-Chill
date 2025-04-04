@@ -1,82 +1,82 @@
 [
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_training.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_training.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_setting.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_setting.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_splash_screen.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\activity_splash_screen.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_confirmation_dialog.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_confirmation_dialog.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_setting.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_setting.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_account_information.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_account_information.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_sign_up_page.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\activity_sign_up_page.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_faq.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_faq.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_grooming.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_grooming.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\item_empty_schedule.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\item_empty_schedule.xml"
+        "merged": "com.example.fetchchill.app-mergeDebugResources-37:/layout/fragment_confirmation_dialog.xml",
+        "source": "com.example.fetchchill.app-main-40:/layout/fragment_confirmation_dialog.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_grooming.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_grooming.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\item_empty_schedule.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\item_empty_schedule.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_forgot_password_page.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_forgot_password_page.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_about_us.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_about_us.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_schedule.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_schedule.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_vaccine.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_vaccine.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_vaccine.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_vaccine.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_checkup.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_checkup.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_main_page.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\activity_main_page.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\item_schedule.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\item_schedule.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_faq.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_faq.xml"
     },
     {
-        "merged": "com.example.fetchchill.app-mergeDebugResources-37:/layout/item_schedule.xml",
-        "source": "com.example.fetchchill.app-main-40:/layout/item_schedule.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_forgot_password_page.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\activity_forgot_password_page.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_sign_up_page.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_sign_up_page.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_training.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_training.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_about_us.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_about_us.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_account_information.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_account_information.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_schedule.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_schedule.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_checkup.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_checkup.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_edit_profile.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\fragment_edit_profile.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_edit_profile.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_edit_profile.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_login_page.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_login_page.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\item_schedule.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\item_schedule.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_splash_screen.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_splash_screen.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_login_page.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\activity_login_page.xml"
     },
     {
-        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\activity_main_page.xml",
-        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.10.2\\com.example.fetchchill.app-main-40:\\layout\\activity_main_page.xml"
+        "merged": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-mergeDebugResources-37:\\layout\\fragment_confirmation_dialog.xml",
+        "source": "C:\\Users\\vince\\.gradle\\daemon\\8.11.1\\com.example.fetchchill.app-main-40:\\layout\\fragment_confirmation_dialog.xml"
     }
 ]

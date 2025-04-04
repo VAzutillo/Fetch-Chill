@@ -80,7 +80,7 @@ class GroomingFragment : BaseAppointmentFragment() {
             // Show the confirmation dialog
             val confirmationDialog = ConfirmationDialogFragment.newInstance(
                 "We've got you confirmed for your appointment.",
-                "${etTime.text} | Dr. Smith",
+                "${etTime.text}",
                 selectedDate ?: Date()
             )
 

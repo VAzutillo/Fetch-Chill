@@ -55,7 +55,7 @@ interface ApiService {
     companion object {
         fun create(): ApiService {
             return Retrofit.Builder()
-                .baseUrl("http://192.168.100.18/fetch_chill/")
+                .baseUrl("http://192.168.82.54/fetch_chill/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(OkHttpClient.Builder().build())
                 .build()
